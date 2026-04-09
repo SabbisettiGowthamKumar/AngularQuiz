@@ -1,0 +1,17 @@
+# Dependency directories
+node_modules/
+
+# Build outputs
+/dist/
+/out-tsc/
+/tmp/
+
+# IDE and Editor files
+.vscode/
+
+# Angular/NPM specific
+package-lock.json
+.angular/
+
+# Other
+coverage/
