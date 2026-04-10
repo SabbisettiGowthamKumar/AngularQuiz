@@ -1,0 +1,57 @@
+.landing-header {
+  background: linear-gradient(135deg, #474141, #000000);
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+
+  &__content {
+    max-width: 600px;
+    margin: auto;
+
+    &--icon {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      mat-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 40px;
+      }
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    &--subtitle {
+      font-size: 16px;
+      opacity: 0.9;
+      margin-bottom: 30px;
+    }
+
+    &--features {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      font-size: 14px;
+      opacity: 0.95;
+
+      mat-icon {
+        font-size: 18px;
+        vertical-align: middle;
+        height: auto;
+      }
+
+      &--text {
+        display: inline-block;
+      }
+    }
+  }
+}
