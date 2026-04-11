@@ -1,0 +1,15 @@
+/**
+| Size | Usage         |
+| ---- | ------------- |
+| xs   | mobile        |
+| sm   | tablet        |
+| md   | small laptop  |
+| lg   | desktop       |
+| xl   | large screens |
+**/
+
+$breakpoint-xs: 480px;
+$breakpoint-sm: 768px;
+$breakpoint-md: 1024px;
+$breakpoint-lg: 1200px;
+$breakpoint-xl: 1440px;

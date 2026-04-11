@@ -1,0 +1,17 @@
+<mat-card class="how-it-works" appearance="raised">
+  <h2 class="how-it-works__h2">How It Works</h2>
+
+  <div class="how-it-works__steps">
+    @for (step of steps; track step.title; let idx = $index) {
+      <div class="how-it-works__steps--step">
+        <div class="circle">{{ idx + 1 }}</div>
+
+        <div class="how-it-works__steps--step--header">
+          <div class="h3">{{ step.title }}</div>
+
+          <p>{{ step.description }}</p>
+        </div>
+      </div>
+    }
+  </div>
+</mat-card>
