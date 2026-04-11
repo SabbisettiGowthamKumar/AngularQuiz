@@ -7,7 +7,9 @@
   &__content {
     max-width: 600px;
     margin: auto;
-
+    &--h1 {
+      color: wheat;
+    }
     &--icon {
       width: 60px;
       height: 60px;

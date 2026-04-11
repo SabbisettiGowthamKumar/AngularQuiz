@@ -1,0 +1,40 @@
+<div class="topic-selection">
+  <h3 class="topic-selection__title">Choose Your Topics</h3>
+  <p class="topic-selection__description">
+    select at least one topic to begin. You can choose multiple topics for a comprehensive quiz
+  </p>
+  <mat-card class="topic-selection__card" appearance="raised">
+    <div class="topic-selection__card__topics">
+      @for (topic of topics; track topic) {
+        <div
+          class="topic-selection__card__topics--topic"
+          role="button"
+          tabindex="0"
+          (click)="addTopic(topic)"
+          (keydown.enter)="addTopic(topic)"
+          (keydown.space)="addTopic(topic)"
+        >
+          {{ topic }}
+        </div>
+      }
+    </div>
+
+    <div class="topic-selection__card__title">Selected Topics</div>
+
+    <div class="topic-selection__card__selected-topics">
+      @if (selectedTopics.length === 0) {
+        <p class="placeholder">No topics selected</p>
+      } @else {
+        @for (topic of selectedTopics; track topic) {
+          <mat-chip
+            class="topic-selection__card__selected-topics--topic"
+            removable
+            (removed)="removeTopic(topic)"
+            [highlighted]="true"
+            >{{ topic }}<button matChipRemove>X</button></mat-chip
+          >
+        }
+      }
+    </div>
+  </mat-card>
+</div>

@@ -1,0 +1,55 @@
+.topic-selection {
+  margin-top: 30px;
+
+  &__title {
+    font-size: 24px;
+    font-weight: 900;
+    margin: 0;
+    color: #895c08;
+  }
+  &__description {
+    font-size: 18px;
+    color: rgb(5, 5, 5);
+  }
+  &__card {
+    padding: 20px;
+    background: linear-gradient(135deg, #474141, #000000);
+    &__topics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      color: wheat;
+      &--topic {
+        color: white;
+        padding: 10px;
+        cursor: pointer;
+        border-radius: 2%;
+        border: 1px solid wheat;
+      }
+    }
+
+    &__title {
+      font-size: 20px;
+      font-weight: 500;
+      margin: 20px 0 10px;
+      color: wheat;
+    }
+
+    &__selected-topics {
+      border: 2px dashed wheat;
+      padding: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+
+      .placeholder {
+        color: white;
+        opacity: 0.5;
+      }
+    }
+  }
+
+  &__description {
+    color: rgb(5, 5, 5);
+  }
+}
