@@ -12,7 +12,7 @@ export class HowItWorksComponent {
   public steps: { title: string; description: string }[] = [
     {
       title: 'Select Topics',
-      description: 'Click on topic cards or drag them to the selection area',
+      description: 'Choose one or more topics to customize your quiz experience.',
     },
     {
       title: 'Start Quiz',

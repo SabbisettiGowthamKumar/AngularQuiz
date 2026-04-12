@@ -14,7 +14,9 @@
     <div class="landing-header__content--features">
       <div class="feature">
         <mat-icon>schedule </mat-icon>
-        <span class="landing-header__content--features--text">30 Minutes</span>
+        <span class="landing-header__content--features--text">{{
+          quizTime() | minutesToHours
+        }}</span>
       </div>
 
       <div class="feature">

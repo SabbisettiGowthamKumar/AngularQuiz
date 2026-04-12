@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MatChipsModule } from '@angular/material/chips';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
+import { QuizService } from '../../../../core/services/quiz.service';
 @Component({
   selector: 'app-topic-selection',
   standalone: true,
@@ -10,27 +11,13 @@ import { MatCardModule } from '@angular/material/card';
   styleUrl: './topic-selection.component.scss',
 })
 export class TopicSelectionComponent {
-  topics = [
-    'Angular Basics',
-    'Forms & Validation',
-    'RxJS',
-    'NgRx : State Management',
-    'Performance Optimization',
-    'HTML',
-    'CSS',
-    'TypeScript',
-    'JavaScript',
-  ];
-
-  selectedTopics: string[] = [];
+  public quizService: QuizService = inject(QuizService);
 
   addTopic(topic: string) {
-    this.selectedTopics.push(topic);
-    this.topics = this.topics.filter((t) => t !== topic);
+    this.quizService.addTopic(topic);
   }
 
   removeTopic(topic: string) {
-    this.topics.push(topic);
-    this.selectedTopics = this.selectedTopics.filter((t) => t !== topic);
+    this.quizService.removeTopic(topic);
   }
 }

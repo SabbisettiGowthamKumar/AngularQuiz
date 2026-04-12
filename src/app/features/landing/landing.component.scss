@@ -2,3 +2,16 @@
   max-width: 1200px;
   margin: 30px auto;
 }
+.landing-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+
+  button {
+    color: wheat;
+    background: linear-gradient(135deg, #474141, #000000);
+    font-size: 20px;
+    padding: 30px;
+    cursor: pointer;
+  }
+}
