@@ -1,0 +1,29 @@
+.quiz-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+
+  &__branding {
+    margin: 15px;
+    &--title {
+      font-size: 24px;
+      font-weight: 600;
+    }
+    &--subtitle {
+      margin-top: 15px;
+      font-size: 14px;
+      font-weight: 400;
+    }
+  }
+
+  &__timer {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 25px;
+    border-radius: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+}

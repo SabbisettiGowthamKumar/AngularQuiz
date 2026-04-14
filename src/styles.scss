@@ -14,6 +14,13 @@ body {
   font-weight: 900;
   color: wheat;
 }
+
+.small-title-style {
+  font-size: 18px !important;
+  font-weight: 400;
+  color: wheat;
+}
+
 .app-background-style {
   background: linear-gradient(135deg, #474141, #000000);
 }
@@ -21,4 +28,9 @@ body {
 .text-style {
   color: white !important;
   font-size: 16px !important;
+}
+
+// Progress bar custom styles
+.mdc-linear-progress__bar-inner {
+  border-color: #eac279 !important;
 }
