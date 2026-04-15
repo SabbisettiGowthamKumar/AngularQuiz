@@ -1,0 +1,80 @@
+.options-panel {
+  background: inherit;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+
+  &__header,
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+
+  &__header {
+    border-bottom: 1px solid wheat;
+    padding: 5px;
+  }
+  &__clear-btn {
+    border-radius: 20px;
+    padding: 3px;
+    font-size: 16px;
+    font-weight: 300;
+    color: wheat !important;
+    background: black !important;
+    border: 1px solid;
+  }
+  &__body {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow: auto;
+    padding: 24px 16px;
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    overflow: auto;
+  }
+
+  &__option {
+    padding: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  &__footer {
+    padding-bottom: 5px;
+  }
+
+  &__prev-btn,
+  &__next-btn {
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 16px;
+    font-weight: 300;
+    color: wheat !important;
+    background: black !important;
+    // border: 1px solid;
+  }
+}
+
+::ng-deep .mdc-form-field.mat-internal-form-field {
+  color: white !important;
+}
+
+::ng-deep
+  .mat-mdc-radio-button
+  .mdc-radio__native-control:enabled:checked
+  + .mdc-radio__background
+  .mdc-radio__outer-circle,
+::ng-deep
+  .mat-mdc-radio-button
+  .mdc-radio__native-control:enabled:checked
+  + .mdc-radio__background
+  .mdc-radio__inner-circle {
+  border-color: wheat !important;
+}

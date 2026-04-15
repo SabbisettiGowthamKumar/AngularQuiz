@@ -17,7 +17,18 @@
       ></app-question-panel>
     </section>
 
-    <section class="quiz-page__options">Options Placeholder</section>
+    <section class="quiz-page__options">
+      <app-options-panel
+        [options]="options"
+        [selectedAnswer]="selectedAnswer"
+        [isFirstQuestion]="false"
+        [isLastQuestion]="false"
+        (answerChange)="onAnswerChange($event)"
+        (clear)="onClearAnswer()"
+        (previous)="onPreviousQuestion()"
+        (next)="onNextQuestion()"
+      ></app-options-panel>
+    </section>
   </main>
 
   <footer class="quiz-page__footer">Footer Placeholder</footer>

@@ -1,0 +1,46 @@
+<section class="options-panel">
+  <div class="options-panel__header">
+    <div class="small-title-style">Choose Answer</div>
+
+    <button mat-raised-button color="primary" class="options-panel__clear-btn" (click)="onClear()">
+      Clear
+    </button>
+  </div>
+
+  <div class="options-panel__body">
+    <mat-radio-group
+      [ngModel]="selectedAnswer"
+      (ngModelChange)="onSelectionChange($event)"
+      class="options-panel__group"
+    >
+      @for (option of options; track option) {
+        <mat-radio-button [value]="option" class="options-panel__option">{{
+          option
+        }}</mat-radio-button>
+      }
+    </mat-radio-group>
+  </div>
+
+  <div class="options-panel__footer">
+    <button
+      mat-raised-button
+      type="button"
+      class="options-panel__prev-btn"
+      (click)="onPrevious()"
+      [disabled]="isFirstQuestion"
+    >
+      < Previous
+    </button>
+
+    <button
+      mat-raised-button
+      color="primary"
+      type="button"
+      class="options-panel__next-btn"
+      (click)="onNext()"
+      [disabled]="isLastQuestion"
+    >
+      Next >
+    </button>
+  </div>
+</section>
