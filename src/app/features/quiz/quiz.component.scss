@@ -1,5 +1,5 @@
 .quiz-page {
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -9,18 +9,45 @@
 .quiz-page__progress,
 .quiz-page__footer,
 .quiz-page__sidebar,
-.quiz-page__question,
+.quiz-page__questions,
 .quiz-page__options {
-  //border: 1px solid #ddd;
   padding: 16px;
+  background: black;
 }
 
 .quiz-page__layout {
   display: grid;
   grid-template-columns: 280px 1fr 420px;
-  gap: 12px;
-  flex: 1;
-  padding: 16px;
+  grid-column-gap: 5px;
+  flex: 1 1 auto;
+  min-height: 0;
+  height: 100%;
+}
+
+.quiz-page__questions,
+.quiz-page__sidebar,
+.quiz-page__options {
+  min-height: 0;
+}
+
+.quiz-page__questions {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.quiz-page__questions > app-question-panel {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.quiz-page__questions {
+  padding-bottom: 0;
+  padding-right: 0;
+}
+
+.quiz-page__header {
+  padding-top: 0;
 }
 
 @media (max-width: 768px) {

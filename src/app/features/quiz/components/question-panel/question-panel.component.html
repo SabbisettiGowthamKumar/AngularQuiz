@@ -1,0 +1,22 @@
+<section class="question-panel">
+  <div class="question-panel__header">
+    <div class="question-panel__header__countDisplay">
+      <span class="question-panel__header__countDisplay--current">Q{{ currentIndex + 1 }}</span>
+      <span class="question-panel__header__countDisplay--total"> of {{ totalQuestions }}</span>
+    </div>
+
+    <button
+      mat-raised-button
+      color="primary"
+      class="question-panel__review-btn"
+      (click)="onMarkForReview()"
+    >
+      <mat-icon>flag</mat-icon>
+      {{ markedForReview ? 'Unmark' : 'Mark For Review' }}
+    </button>
+  </div>
+
+  <div class="question-panel__body">
+    <markdown class="question-panel__body--text" [data]="questionText"> </markdown>
+  </div>
+</section>

@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-
+import { provideMarkdown } from 'ngx-markdown';
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet],
+  providers: [provideMarkdown()],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
