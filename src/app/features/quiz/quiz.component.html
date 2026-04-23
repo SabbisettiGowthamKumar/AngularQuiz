@@ -1,7 +1,10 @@
 <section class="quiz-page">
   <header class="quiz-page__header">
     <app-quiz-header></app-quiz-header>
-    <app-progress-bar [answered]="5" [total]="50"></app-progress-bar>
+    <app-progress-bar
+      [answered]="quiz.answeredCount()"
+      [total]="quiz.totalQuestions()"
+    ></app-progress-bar>
   </header>
 
   <main class="quiz-page__layout">
@@ -9,24 +12,24 @@
 
     <section class="quiz-page__questions">
       <app-question-panel
-        [currentIndex]="0"
-        [totalQuestions]="10"
-        [questionText]="questionText"
-        [markedForReview]="false"
-        (markReview)="onMarkReview($event)"
+        [currentIndex]="quiz.currentIndex()"
+        [totalQuestions]="quiz.totalQuestions()"
+        [questionText]="quiz.currentQuestion().content || ''"
+        [markedForReview]="quiz.isMarked()"
+        (markReview)="quiz.toggleReview()"
       ></app-question-panel>
     </section>
 
     <section class="quiz-page__options">
       <app-options-panel
-        [options]="options"
-        [selectedAnswer]="selectedAnswer"
-        [isFirstQuestion]="false"
-        [isLastQuestion]="false"
-        (answerChange)="onAnswerChange($event)"
-        (clear)="onClearAnswer()"
-        (previous)="onPreviousQuestion()"
-        (next)="onNextQuestion()"
+        [options]="quiz.currentQuestion().options"
+        [selectedAnswer]="quiz.selectedAnswer()"
+        [isFirstQuestion]="quiz.isFirstQuestion()"
+        [isLastQuestion]="quiz.isLastQuestion()"
+        (answerChange)="quiz.selectAnswer($event)"
+        (clear)="quiz.clearAnswer()"
+        (previous)="quiz.previousQuestion()"
+        (next)="quiz.nextQuestion()"
       ></app-options-panel>
     </section>
   </main>

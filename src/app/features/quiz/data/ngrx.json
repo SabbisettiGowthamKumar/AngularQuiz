@@ -1,0 +1,28 @@
+[
+  {
+    "id": "ngrx-1",
+    "topic": "NgRx",
+    "content": "## What is NgRx mainly used for in Angular?",
+    "options": ["Styling components", "State management", "Routing", "Animations"],
+    "correctAnswer": "State management"
+  },
+  {
+    "id": "ngrx-2",
+    "topic": "NgRx",
+    "content": "## Which NgRx concept describes an event sent to update state?",
+    "options": ["Selector", "Action", "Effect", "ReducerMap"],
+    "correctAnswer": "Action"
+  },
+  {
+    "id": "ngrx-3",
+    "topic": "NgRx",
+    "content": "## What is a reducer in NgRx?",
+    "options": [
+      "A function that returns new state",
+      "A CSS utility",
+      "An API service",
+      "A route guard"
+    ],
+    "correctAnswer": "A function that returns new state"
+  }
+]

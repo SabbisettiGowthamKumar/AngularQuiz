@@ -1,0 +1,33 @@
+[
+  {
+    "id": "git-1",
+    "topic": "Git",
+    "content": "## What does `git clone` do?",
+    "options": [
+      "Deletes a branch",
+      "Copies a remote repository locally",
+      "Creates a merge conflict",
+      "Pushes changes"
+    ],
+    "correctAnswer": "Copies a remote repository locally"
+  },
+  {
+    "id": "git-2",
+    "topic": "Git",
+    "content": "## Which command stages changes for commit?",
+    "options": ["git push", "git add", "git merge", "git pull"],
+    "correctAnswer": "git add"
+  },
+  {
+    "id": "git-3",
+    "topic": "Git",
+    "content": "## What does `git status` show?",
+    "options": [
+      "Browser history",
+      "Repository state and changed files",
+      "Remote server logs",
+      "Deleted commits"
+    ],
+    "correctAnswer": "Repository state and changed files"
+  }
+]

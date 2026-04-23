@@ -1,8 +1,8 @@
-import { Component, inject } from '@angular/core';
-import { MatChipsModule } from '@angular/material/chips';
 import { CommonModule } from '@angular/common';
+import { Component, inject } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
-import { QuizService } from '../../../../core/services/quiz.service';
+import { MatChipsModule } from '@angular/material/chips';
+import { QuizService } from '../../../quiz/services/quiz.service';
 @Component({
   selector: 'app-topic-selection',
   standalone: true,

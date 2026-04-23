@@ -1,7 +1,7 @@
 import { Component, computed, inject } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
-import { QuizService } from '../../../../core/services/quiz.service';
 import { MinutesToHoursPipe } from '../../../../shared/pipes/minutes-to-hours.pipe';
+import { QuizService } from '../../../quiz/services/quiz.service';
 
 @Component({
   selector: 'app-landing-header',

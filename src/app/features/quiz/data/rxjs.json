@@ -1,0 +1,23 @@
+[
+  {
+    "id": "rxjs-1",
+    "topic": "RxJS",
+    "content": "## What does an Observable represent?",
+    "options": ["A CSS selector", "A stream of asynchronous data", "A component", "A route"],
+    "correctAnswer": "A stream of asynchronous data"
+  },
+  {
+    "id": "rxjs-2",
+    "topic": "RxJS",
+    "content": "## Which operator transforms emitted values?",
+    "options": ["map", "tap", "delay", "take"],
+    "correctAnswer": "map"
+  },
+  {
+    "id": "rxjs-3",
+    "topic": "RxJS",
+    "content": "## Which operator is commonly used for side effects like logging?",
+    "options": ["tap", "map", "filter", "switchMap"],
+    "correctAnswer": "tap"
+  }
+]

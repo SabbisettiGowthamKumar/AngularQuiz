@@ -1,0 +1,47 @@
+[
+  {
+    "id": "html-1",
+    "topic": "HTML",
+    "content": "## What does HTML stand for?\n\nHTML is the standard markup language used to structure web pages.\n\n### Choose the correct answer.",
+    "options": [
+      "Hyper Text Markup Language",
+      "High Transfer Machine Language",
+      "Hyperlink Text Management Language",
+      "Home Tool Markup Language"
+    ],
+    "correctAnswer": "Hyper Text Markup Language"
+  },
+  {
+    "id": "html-2",
+    "topic": "HTML",
+    "content": "## Which HTML element is used for the largest heading?\n\nHeadings help structure content hierarchically.\n\n### Select the correct tag.",
+    "options": ["<heading>", "<h6>", "<h1>", "<head>"],
+    "correctAnswer": "<h1>"
+  },
+  {
+    "id": "html-3",
+    "topic": "HTML",
+    "content": "## What is the purpose of semantic HTML?\n\nSemantic elements describe the meaning of content rather than only presentation.\n\n### Choose the best answer.",
+    "options": [
+      "To increase file size",
+      "To improve structure, accessibility, and readability",
+      "To replace CSS",
+      "To execute JavaScript faster"
+    ],
+    "correctAnswer": "To improve structure, accessibility, and readability"
+  },
+  {
+    "id": "html-4",
+    "topic": "HTML",
+    "content": "## Which tag is commonly used to create a hyperlink?\n\nLinks allow navigation between pages and resources.\n\n### Choose the correct element.",
+    "options": ["<link>", "<a>", "<href>", "<navlink>"],
+    "correctAnswer": "<a>"
+  },
+  {
+    "id": "html-5",
+    "topic": "HTML",
+    "content": "## Which element is used to display an image in HTML?\n\n### Select the correct tag.",
+    "options": ["<image>", "<picture-src>", "<img>", "<src>"],
+    "correctAnswer": "<img>"
+  }
+]

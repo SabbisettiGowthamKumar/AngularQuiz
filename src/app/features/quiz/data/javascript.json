@@ -1,0 +1,28 @@
+[
+  {
+    "id": "javascript-1",
+    "topic": "JavaScript",
+    "content": "## What is JavaScript primarily used for?\n\nChoose the best answer.",
+    "options": [
+      "Styling web pages",
+      "Adding interactivity to web pages",
+      "Managing databases only",
+      "Creating HTML structure"
+    ],
+    "correctAnswer": "Adding interactivity to web pages"
+  },
+  {
+    "id": "javascript-2",
+    "topic": "JavaScript",
+    "content": "## Which keyword is used to declare a block-scoped variable?",
+    "options": ["var", "let", "define", "constvar"],
+    "correctAnswer": "let"
+  },
+  {
+    "id": "javascript-3",
+    "topic": "JavaScript",
+    "content": "## What is the output type of `typeof []` in JavaScript?",
+    "options": ["array", "object", "list", "undefined"],
+    "correctAnswer": "object"
+  }
+]

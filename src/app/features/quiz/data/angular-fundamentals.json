@@ -1,0 +1,57 @@
+[
+  {
+    "id": "angular-fundamentals-1",
+    "topic": "Angular Fundamentals",
+    "content": "## What is Angular?\n\nAngular is a modern framework used to build scalable single-page applications.\n\n### Which statement best describes Angular?",
+    "options": [
+      "A database management system",
+      "A TypeScript-based front-end framework",
+      "A CSS utility library",
+      "A backend runtime environment"
+    ],
+    "correctAnswer": "A TypeScript-based front-end framework"
+  },
+  {
+    "id": "angular-fundamentals-2",
+    "topic": "Angular Fundamentals",
+    "content": "## What is the purpose of Angular Components?\n\nAngular applications are built using reusable pieces called components.\n\n### A component usually contains:",
+    "options": [
+      "Only stylesheets",
+      "Template, logic, and styles",
+      "Only SQL queries",
+      "Only route definitions"
+    ],
+    "correctAnswer": "Template, logic, and styles"
+  },
+  {
+    "id": "angular-fundamentals-3",
+    "topic": "Angular Fundamentals",
+    "content": "## What does data binding do in Angular?\n\nData binding keeps the component class and template connected.\n\n### Choose the best answer.",
+    "options": [
+      "Connects UI and component data",
+      "Creates database tables",
+      "Compiles SCSS files",
+      "Registers routes automatically"
+    ],
+    "correctAnswer": "Connects UI and component data"
+  },
+  {
+    "id": "angular-fundamentals-4",
+    "topic": "Angular Fundamentals",
+    "content": "## Which file usually contains component markup?\n\nAngular components commonly separate logic and UI.\n\n### Which file contains the HTML structure?",
+    "options": ["component.ts", "component.scss", "component.html", "angular.json"],
+    "correctAnswer": "component.html"
+  },
+  {
+    "id": "angular-fundamentals-5",
+    "topic": "Angular Fundamentals",
+    "content": "## What is the role of `@Component` in Angular?\n\nIt is a decorator used in Angular development.\n\n### Choose the correct answer.",
+    "options": [
+      "Defines a service endpoint",
+      "Marks a class as an Angular component with metadata",
+      "Creates a database schema",
+      "Adds CSS animations automatically"
+    ],
+    "correctAnswer": "Marks a class as an Angular component with metadata"
+  }
+]

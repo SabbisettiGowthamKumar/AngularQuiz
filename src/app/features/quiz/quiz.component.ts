@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
-import { QuizHeaderComponent } from './components/quiz-header/quiz-header.component';
+import { Component, inject, OnInit } from '@angular/core';
 import { ProgressBarComponent } from '../../shared/components/progress-bar/progress-bar.component';
-import { QuestionPanelComponent } from './components/question-panel/question-panel.component';
 import { OptionsPanelComponent } from './components/options-panel/options-panel.component';
+import { QuestionPanelComponent } from './components/question-panel/question-panel.component';
+import { QuizHeaderComponent } from './components/quiz-header/quiz-header.component';
+import { QuizService } from './services/quiz.service';
 
 @Component({
   selector: 'app-quiz',
@@ -16,7 +17,12 @@ import { OptionsPanelComponent } from './components/options-panel/options-panel.
   templateUrl: './quiz.component.html',
   styleUrl: './quiz.component.scss',
 })
-export class QuizComponent {
+export class QuizComponent implements OnInit {
+  quiz = inject(QuizService);
+
+  ngOnInit(): void {
+    this.quiz.startQuiz();
+  }
   questionText = `
 ###### What is the purpose of Angular Components?
 

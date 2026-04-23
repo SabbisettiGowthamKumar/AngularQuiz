@@ -1,0 +1,33 @@
+[
+  {
+    "id": "scss-1",
+    "topic": "SCSS",
+    "content": "## What is SCSS?\n\nChoose the best answer.",
+    "options": [
+      "A JavaScript library",
+      "A CSS preprocessor syntax",
+      "A database tool",
+      "A browser engine"
+    ],
+    "correctAnswer": "A CSS preprocessor syntax"
+  },
+  {
+    "id": "scss-2",
+    "topic": "SCSS",
+    "content": "## Which symbol is used to declare a variable in SCSS?",
+    "options": ["@", "$", "#", "%"],
+    "correctAnswer": "$"
+  },
+  {
+    "id": "scss-3",
+    "topic": "SCSS",
+    "content": "## What is nesting in SCSS?",
+    "options": [
+      "Writing selectors inside selectors",
+      "Importing JavaScript files",
+      "Creating database relations",
+      "Compressing CSS automatically"
+    ],
+    "correctAnswer": "Writing selectors inside selectors"
+  }
+]

@@ -1,0 +1,28 @@
+[
+  {
+    "id": "typescript-1",
+    "topic": "TypeScript",
+    "content": "## What is TypeScript?\n\nChoose the correct answer.",
+    "options": [
+      "A CSS framework",
+      "A superset of JavaScript with static typing",
+      "A database language",
+      "A browser extension"
+    ],
+    "correctAnswer": "A superset of JavaScript with static typing"
+  },
+  {
+    "id": "typescript-2",
+    "topic": "TypeScript",
+    "content": "## Which symbol is used to define a type annotation?",
+    "options": [":", "=", "->", "::"],
+    "correctAnswer": ":"
+  },
+  {
+    "id": "typescript-3",
+    "topic": "TypeScript",
+    "content": "## Which keyword is used to define an interface?",
+    "options": ["type", "class", "interface", "implements"],
+    "correctAnswer": "interface"
+  }
+]

@@ -1,12 +1,12 @@
 import { Component, inject } from '@angular/core';
-import { LandingHeaderComponent } from './components/landing-header/landing-header.component';
-import { HowItWorksComponent } from './components/how-it-works/how-it-works.component';
-import { TopicSelectionComponent } from './components/topic-selection/topic-selection.component';
-import { Router } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
-import { QuizService } from '../../core/services/quiz.service';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { CommonDisplayDialogComponent } from '../../core/models/common-display-dialog/common-display-dialog.component';
+import { QuizService } from '../quiz/services/quiz.service';
+import { HowItWorksComponent } from './components/how-it-works/how-it-works.component';
+import { LandingHeaderComponent } from './components/landing-header/landing-header.component';
+import { TopicSelectionComponent } from './components/topic-selection/topic-selection.component';
 @Component({
   selector: 'app-landing',
   standalone: true,
