@@ -38,6 +38,7 @@ export class LandingComponent {
       });
       return;
     } else {
+      this.quizService.startQuiz();
       this.router.navigate(['/quiz']);
     }
   }

@@ -1,4 +1,9 @@
 import { Component, inject, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { Observable, tap } from 'rxjs';
+import { CommonDisplayDialogComponent } from '../../core/models/common-display-dialog/common-display-dialog.component';
+import { UnloadWarningService } from '../../core/services/unload-warning.service';
 import { ProgressBarComponent } from '../../shared/components/progress-bar/progress-bar.component';
 import { OptionsPanelComponent } from './components/options-panel/options-panel.component';
 import { QuestionPanelComponent } from './components/question-panel/question-panel.component';
@@ -19,58 +24,41 @@ import { QuizService } from './services/quiz.service';
 })
 export class QuizComponent implements OnInit {
   quiz = inject(QuizService);
+  dialog = inject(MatDialog);
+  router = inject(Router);
+  unload = inject(UnloadWarningService);
 
   ngOnInit(): void {
-    this.quiz.startQuiz();
-  }
-  questionText = `
-###### What is the purpose of Angular Components?
-
-Angular applications are built using multiple **components** that work together to create the user interface.
-
-A component usually contains:
-
-- A **TypeScript class** for logic
-- An **HTML template** for UI
-- A **CSS/SCSS file** for styling
-
-###### Which statement best describes an Angular Component?
-
-`;
-
-  options = [
-    'A service used for API calls only',
-    'A reusable UI building block with logic and template',
-    'A routing configuration file',
-    'A CSS framework for Angular',
-  ];
-
-  selectedAnswer = '';
-  onMarkReview(event: Event): void {
-    console.log('Mark for review event received in QuizComponent', event);
+    this.unload.enable();
   }
 
-  /**
-   *      (answerChange)="onAnswerChange($event)"
-        (clear)="onClearAnswer()"
-        (previous)="onPreviousQuestion()"
-        (next)="onNextQuestion()"
-   */
-
-  onAnswerChange(answer: string): void {
-    this.selectedAnswer = answer;
-    console.log('Answer changed:', answer);
+  private isQuizInProgress(): boolean {
+    return this.quiz.totalQuestions() > 0 && this.quiz.answeredCount() > 0;
   }
 
-  onClearAnswer(): void {
-    console.log('answer clear clicked-');
+  private showLeaveDialog(): Observable<boolean> {
+    const ref = this.dialog.open(CommonDisplayDialogComponent, {
+      data: {
+        title: 'Leave Quiz?',
+        message: 'Your current progress may be lost. Are you sure you want to leave?',
+        confirmText: 'Leave',
+        cancelText: 'Stay',
+      },
+    });
+
+    // Restore the history state so the leave dialog can be reopened repeatedly without breaking back navigation.
+    return ref.afterClosed().pipe(
+      tap((result) => {
+        if (!result) history.pushState(null, '', this.router.url);
+      })
+    );
   }
 
-  onPreviousQuestion() {
-    console.log('onPreviousQuestion clicked- ');
-  }
+  StopLeaveQuiz(): boolean | Observable<boolean> {
+    if (!this.isQuizInProgress()) {
+      return true;
+    }
 
-  onNextQuestion() {
-    console.log('on next question clicked- ');
+    return this.showLeaveDialog();
   }
 }

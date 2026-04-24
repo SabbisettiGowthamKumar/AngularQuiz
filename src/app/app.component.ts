@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, HostListener, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { provideMarkdown } from 'ngx-markdown';
+import { UnloadWarningService } from './core/services/unload-warning.service';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -10,5 +11,13 @@ import { provideMarkdown } from 'ngx-markdown';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'AngularQuiz';
+  unload = inject(UnloadWarningService);
+
+  @HostListener('window:beforeunload', ['$event'])
+  handleBeforeunload(event: BeforeUnloadEvent) {
+    if (this.unload.shouldWarn()) {
+      event.preventDefault();
+      event.returnValue = '';
+    }
+  }
 }
