@@ -1,4 +1,5 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, computed, inject, OnInit, signal } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Observable, tap } from 'rxjs';
@@ -8,6 +9,7 @@ import { ProgressBarComponent } from '../../shared/components/progress-bar/progr
 import { OptionsPanelComponent } from './components/options-panel/options-panel.component';
 import { QuestionPanelComponent } from './components/question-panel/question-panel.component';
 import { QuizHeaderComponent } from './components/quiz-header/quiz-header.component';
+import { SidePanelComponent } from './components/side-panel/side-panel.component';
 import { QuizService } from './services/quiz.service';
 
 @Component({
@@ -18,6 +20,8 @@ import { QuizService } from './services/quiz.service';
     ProgressBarComponent,
     QuestionPanelComponent,
     OptionsPanelComponent,
+    SidePanelComponent,
+    CommonModule,
   ],
   templateUrl: './quiz.component.html',
   styleUrl: './quiz.component.scss',
@@ -31,6 +35,14 @@ export class QuizComponent implements OnInit {
   ngOnInit(): void {
     this.unload.enable();
   }
+
+  isSidebarCollapsed = signal(false);
+
+  togglesidebar() {
+    this.isSidebarCollapsed.update((v) => !v);
+  }
+
+  sidebarWidth = computed(() => (this.isSidebarCollapsed() ? '56px ' : '280px'));
 
   private isQuizInProgress(): boolean {
     return this.quiz.totalQuestions() > 0 && this.quiz.answeredCount() > 0;

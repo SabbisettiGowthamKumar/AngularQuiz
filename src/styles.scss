@@ -35,24 +35,20 @@ body {
   border-color: #eac279 !important;
 }
 
-/* width */
+/* custom scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px rgb(0, 0, 0);
-  border-radius: 10px;
+  background: #050505;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgb(255, 255, 255);
-  border-radius: 10px;
+  background: #2a2a2a;
+  border-radius: 999px;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #5e5d5d;
+  background: #3f3f3f;
 }

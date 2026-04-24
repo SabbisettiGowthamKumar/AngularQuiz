@@ -2,6 +2,7 @@ import { computed, Injectable, signal, WritableSignal } from '@angular/core';
 import { Question } from '../models/question.model';
 
 /* JSON Question Banks */
+import { QuestionStatus } from '../../../shared/enums/question-status.enum';
 import { Topic } from '../../../shared/enums/topic.enum';
 import angularData from '../data/angular-fundamentals.json';
 import gitData from '../data/git.json';
@@ -128,5 +129,27 @@ export class QuizService {
     this.reviewIds.update((ids) =>
       ids.includes(toggle_id) ? ids.filter((id) => id !== toggle_id) : [...ids, toggle_id]
     );
+  }
+
+  goToQuestion(index: number) {
+    if (index >= 0 && index < this.questions().length) {
+      this.currentIndex.set(index);
+    }
+  }
+
+  getQuestionStatus(question: Question): QuestionStatus {
+    if (this.currentQuestion()?.id === question.id) {
+      return QuestionStatus.ACTIVE;
+    }
+
+    if (this.reviewIds().includes(question.id)) {
+      return QuestionStatus.REVIEW;
+    }
+
+    if (this.answers()[question.id]) {
+      return QuestionStatus.ANSWERED;
+    }
+
+    return QuestionStatus.UNANSWERED;
   }
 }

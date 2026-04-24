@@ -1,0 +1,47 @@
+<aside class="sidebar">
+  @if (!collapsed()) {
+    <div class="sidebar__content">
+      <div class="sidebar__content--header small-title-style">Questions</div>
+      <button type="button" class="sidebar__content--btn" (click)="toggleSidebar()"><</button>
+    </div>
+
+    <div class="sidebar__content--stats">
+      <div>
+        <span class="green">Answered {{ quiz.answeredCount() }}</span>
+      </div>
+      <div>
+        <span class="gray">Not Answered {{ notAnswered() }}</span>
+      </div>
+      <div>
+        <span class="orange">Review {{ quiz.reviewIds().length }}</span>
+      </div>
+    </div>
+
+    <div class="sidebar__content--groups">
+      @for (group of groupedQuestions(); track group.topic) {
+        <section class="sidebar__group">
+          <div class="sidebar__group--name">{{ group.topic }}</div>
+          <div class="sidebar__group--grid">
+            @for (question of group.questions; track question.id) {
+              <button
+                type="button"
+                class="sidebar__group--grid--item"
+                [ngClass]="quiz.getQuestionStatus(question)"
+                (click)="goTo((question.sequence || 1) - 1)"
+              >
+                {{ question.sequence }}
+              </button>
+            }
+          </div>
+        </section>
+      }
+    </div>
+  }
+
+  @if (collapsed()) {
+    <div class="sidebar__collapsed">
+      <button type="button" class="sidebar__collapsed--btn" (click)="toggleSidebar()">></button>
+      <span class="sidebar__collapsed--text">Questions</span>
+    </div>
+  }
+</aside>

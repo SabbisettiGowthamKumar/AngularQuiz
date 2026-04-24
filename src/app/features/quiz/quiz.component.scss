@@ -1,3 +1,5 @@
+@use 'breakpoints' as *;
+
 .quiz-page {
   height: 100vh;
   display: flex;
@@ -17,7 +19,6 @@
 
 .quiz-page__layout {
   display: grid;
-  grid-template-columns: 280px 1fr 420px;
   grid-column-gap: 5px;
   flex: 1 1 auto;
   min-height: 0;
@@ -51,11 +52,18 @@
   padding-top: 0;
 }
 
-@media (max-width: 768px) {
-  .quiz-page__layout {
-    grid-template-columns: 1fr;
+@media (max-width: $breakpoint-xs) {
+  .quiz-page {
+    height: auto;
   }
-
+  .quiz-page__layout {
+    grid-template-columns: 1fr !important;
+    gap: 5px;
+  }
+  .quiz-page__questions,
+  .quiz-page__options {
+    min-height: auto;
+  }
   .quiz-page__sidebar {
     display: none; // later drawer
   }

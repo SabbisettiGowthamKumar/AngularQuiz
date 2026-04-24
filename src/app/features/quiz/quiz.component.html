@@ -7,8 +7,13 @@
     ></app-progress-bar>
   </header>
 
-  <main class="quiz-page__layout">
-    <aside class="quiz-page__sidebar">sidebar Placeholder</aside>
+  <main class="quiz-page__layout" [style.grid-template-columns]="sidebarWidth() + ' 1fr 420px'">
+    <aside class="quiz-page__sidebar">
+      <app-side-panel
+        [collapsed]="isSidebarCollapsed()"
+        (collapsedChange)="togglesidebar()"
+      ></app-side-panel>
+    </aside>
 
     <section class="quiz-page__questions">
       <app-question-panel
@@ -16,7 +21,7 @@
         [totalQuestions]="quiz.totalQuestions()"
         [questionText]="quiz.currentQuestion().content || ''"
         [markedForReview]="quiz.isMarked()"
-        (markReview)="quiz.toggleReview()"
+        (markForReview)="quiz.toggleReview()"
       ></app-question-panel>
     </section>
 

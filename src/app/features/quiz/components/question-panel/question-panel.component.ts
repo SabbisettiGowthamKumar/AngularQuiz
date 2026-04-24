@@ -17,10 +17,9 @@ export class QuestionPanelComponent {
 
   markDown = inject(MarkdownModule);
 
-  @Output() markForReview = new EventEmitter<boolean>();
+  @Output() markForReview = new EventEmitter<void>();
 
   onMarkForReview(): void {
-    this.markedForReview = !this.markedForReview;
-    this.markForReview.emit(this.markedForReview);
+    this.markForReview.emit();
   }
 }
