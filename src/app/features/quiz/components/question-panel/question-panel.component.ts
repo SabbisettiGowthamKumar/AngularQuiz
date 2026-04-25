@@ -2,6 +2,7 @@ import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MarkdownModule } from 'ngx-markdown';
+import { QuizService } from '../../services/quiz.service';
 @Component({
   selector: 'app-question-panel',
   standalone: true,
@@ -16,6 +17,7 @@ export class QuestionPanelComponent {
   @Input() markedForReview = false;
 
   markDown = inject(MarkdownModule);
+  quiz = inject(QuizService);
 
   @Output() markForReview = new EventEmitter<void>();
 

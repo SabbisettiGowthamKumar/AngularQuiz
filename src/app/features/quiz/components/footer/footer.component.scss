@@ -89,6 +89,12 @@
       &:hover {
         transform: translateY(-1px);
       }
+      &:disabled {
+        color: black !important;
+        background-color: #463b3b !important;
+        transition: none !important;
+        transform: none !important;
+      }
     }
   }
 

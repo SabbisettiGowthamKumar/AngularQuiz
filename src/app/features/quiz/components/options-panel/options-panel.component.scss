@@ -25,6 +25,15 @@
     color: wheat !important;
     background: black !important;
     border: 1px solid;
+    &:hover {
+      transform: translateY(-1px);
+    }
+    &:disabled {
+      color: black !important;
+      background-color: #463b3b !important;
+      transition: none !important;
+      transform: none !important;
+    }
   }
   &__body {
     flex: 1 1 auto;
@@ -40,10 +49,42 @@
     overflow: auto;
   }
 
+  &__option-wrapper {
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    transition: all 0.2s ease;
+
+    &.correct {
+      border-color: #22c55e;
+    }
+
+    &.wrong {
+      border-color: #ef4444;
+    }
+  }
+
   &__option {
     padding: 8px;
     border-radius: 4px;
     cursor: pointer;
+    &:disabled {
+      color: black !important;
+      background-color: #463b3b !important;
+      transition: none !important;
+      transform: none !important;
+    }
+  }
+
+  &__status-icon {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: 700;
   }
 
   &__footer {
@@ -52,13 +93,22 @@
 
   &__prev-btn,
   &__next-btn {
-    border-radius: 5px;
+    border-radius: 20px;
+    border: 1px solid wheat;
     padding: 5px 10px;
     font-size: 16px;
     font-weight: 300;
     color: wheat !important;
     background: black !important;
-    // border: 1px solid;
+    &:hover {
+      transform: translateY(-1px);
+    }
+    &:disabled {
+      color: black !important;
+      background-color: #463b3b !important;
+      transition: none !important;
+      transform: none !important;
+    }
   }
 }
 
@@ -77,4 +127,36 @@
   + .mdc-radio__background
   .mdc-radio__inner-circle {
   border-color: wheat !important;
+}
+
+::ng-deep
+  .mat-mdc-radio-button
+  .mdc-radio__native-control:disabled:checked
+  + .mdc-radio__background
+  .mdc-radio__outer-circle,
+::ng-deep
+  .mat-mdc-radio-button
+  .mdc-radio__native-control:disabled:checked
+  + .mdc-radio__background
+  .mdc-radio__inner-circle {
+  border-color: wheat !important;
+}
+
+::ng-deep
+  .mat-mdc-radio-button
+  .mdc-radio__native-control:disabled:not(:checked)
+  + .mdc-radio__background
+  .mdc-radio__outer-circle {
+  border-color: wheat !important;
+}
+
+::ng-deep .mat-mdc-radio-button .mdc-radio--disabled + label {
+  color: white !important;
+}
+.correct-icon {
+  color: #22c55e;
+}
+
+.wrong-icon {
+  color: #ef4444;
 }

@@ -5,7 +5,12 @@
       .Learn .Revise .Prepare For Interviews
     </div>
   </div>
-
+  @if (quiz.isSubmitted()) {
+    <div class="quiz-header__results">
+      <div class="quiz-header__results--score">Score: {{ quiz.score() }}%</div>
+      <button class="quiz-header__results--restartBtn" (click)="restartQuiz()">Restart Quiz</button>
+    </div>
+  }
   <div class="quiz-header__timer title-style">
     <mat-icon>schedule</mat-icon>
     <span> {{ time }}</span>

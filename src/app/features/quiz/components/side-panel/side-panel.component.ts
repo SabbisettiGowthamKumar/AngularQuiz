@@ -17,9 +17,7 @@ export class SidePanelComponent {
   toggleSidebar() {
     this.collapsedChange.emit();
   }
-  notAnswered = computed(
-    () => this.quiz.totalQuestions() - (this.quiz.answeredCount() + this.quiz.reviewIds().length)
-  );
+  notAnswered = computed(() => this.quiz.totalQuestions() - this.quiz.answeredCount());
   groupedQuestions = computed(() => {
     const groups = new Map<string, Question[]>();
 

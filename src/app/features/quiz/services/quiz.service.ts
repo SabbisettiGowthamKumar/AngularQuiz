@@ -17,7 +17,7 @@ import typescriptData from '../data/typescript.json';
   providedIn: 'root',
 })
 export class QuizService {
-  private _topics: WritableSignal<string[]> = signal<string[]>([
+  ALL_TOPICS = [
     Topic.ANGULAR_FUNDAMENTALS,
     Topic.HTML,
     Topic.SCSS,
@@ -26,7 +26,9 @@ export class QuizService {
     Topic.RXJS,
     Topic.NGRX,
     Topic.GIT,
-  ]);
+  ];
+
+  private _topics: WritableSignal<string[]> = signal<string[]>([...this.ALL_TOPICS]);
 
   private _selectedTopics: WritableSignal<string[]> = signal<string[]>([]);
 
@@ -49,6 +51,7 @@ export class QuizService {
 
   answers = signal<Record<string, string>>({});
   reviewIds = signal<string[]>([]);
+  isSubmitted = signal(false);
 
   addTopic(topic: string) {
     this._selectedTopics.update((topics) => [...topics, topic]);
@@ -76,6 +79,15 @@ export class QuizService {
     this.reviewIds.set([]);
   }
 
+  restart() {
+    this.isSubmitted.set(false);
+    this.questions.set([]);
+    this.currentIndex.set(0);
+    this.answers.set({});
+    this.reviewIds.set([]);
+    this._topics.set([...this.ALL_TOPICS]);
+    this._selectedTopics.set([]);
+  }
   currentQuestion = computed(() => this.questions()[this.currentIndex()] ?? null);
 
   totalQuestions = computed(() => this.questions().length);
@@ -152,4 +164,17 @@ export class QuizService {
 
     return QuestionStatus.UNANSWERED;
   }
+
+  score = computed(() => {
+    const questions = this.questions();
+    const answers = this.answers();
+
+    let correct = 0;
+
+    questions.forEach((q) => {
+      if (answers[q.id] === q.correctAnswer) correct++;
+    });
+
+    return questions.length ? Math.round((correct / questions.length) * 100) : 0;
+  });
 }

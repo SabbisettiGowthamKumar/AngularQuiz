@@ -2,7 +2,13 @@
   <div class="options-panel__header">
     <div class="small-title-style">Choose Answer</div>
 
-    <button mat-raised-button color="primary" class="options-panel__clear-btn" (click)="onClear()">
+    <button
+      mat-raised-button
+      color="primary"
+      class="options-panel__clear-btn"
+      (click)="onClear()"
+      [disabled]="quiz.isSubmitted()"
+    >
       Clear
     </button>
   </div>
@@ -12,11 +18,21 @@
       [ngModel]="selectedAnswer"
       (ngModelChange)="onSelectionChange($event)"
       class="options-panel__group"
+      [disabled]="quiz.isSubmitted()"
     >
       @for (option of options; track option) {
-        <mat-radio-button [value]="option" class="options-panel__option">{{
-          option
-        }}</mat-radio-button>
+        <div class="options-panel__option-wrapper" [ngClass]="getOptionClass(option)">
+          <mat-radio-button [value]="option" class="options-panel__option">{{
+            option
+          }}</mat-radio-button>
+
+          @if (quiz.isSubmitted() && isCorrect(option)) {
+            <span class="options-panel__status-icon correct-icon">✓</span>
+          }
+          @if (quiz.isSubmitted() && isWrongSelected(option)) {
+            <span class="options-panel__status-icon wrong-icon">X</span>
+          }
+        </div>
       }
     </mat-radio-group>
   </div>

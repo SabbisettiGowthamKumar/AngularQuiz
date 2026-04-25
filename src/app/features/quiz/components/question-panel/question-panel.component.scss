@@ -41,6 +41,12 @@
     font-size: 13px;
     color: wheat !important;
     background: black !important;
+    &:disabled {
+      color: black !important;
+      background-color: #463b3b !important;
+      transition: none !important;
+      transform: none !important;
+    }
   }
 
   &__body {
@@ -50,11 +56,22 @@
     min-height: 0;
     overflow: auto;
     &--text {
-      margin: 0px;
-      font-size: 18px;
-      line-height: 1.45;
-      font-weight: 400;
-      color: white;
+      ::ng-deep {
+        line-height: normal;
+        font-size: 16px !important;
+        margin: 0px;
+        font-weight: 400;
+        color: white;
+        h2 {
+          font-size: 25px !important;
+        }
+        p {
+          font-size: 16px !important;
+        }
+        h3 {
+          font-size: 23px !important;
+        }
+      }
     }
   }
 }

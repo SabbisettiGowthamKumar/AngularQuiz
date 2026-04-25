@@ -12,7 +12,12 @@
   </div>
 
   <div class="quiz-footer__right">
-    <button type="button" class="quiz-footer__right--submitBtn" (click)="submitQuiz()">
+    <button
+      type="button"
+      class="quiz-footer__right--submitBtn"
+      (click)="submitQuiz()"
+      [disabled]="quiz.isSubmitted()"
+    >
       Submit Quiz
     </button>
   </div>
