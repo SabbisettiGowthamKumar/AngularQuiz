@@ -6,6 +6,7 @@ import { Observable, tap } from 'rxjs';
 import { CommonDisplayDialogComponent } from '../../core/models/common-display-dialog/common-display-dialog.component';
 import { UnloadWarningService } from '../../core/services/unload-warning.service';
 import { ProgressBarComponent } from '../../shared/components/progress-bar/progress-bar.component';
+import { FooterComponent } from './components/footer/footer.component';
 import { OptionsPanelComponent } from './components/options-panel/options-panel.component';
 import { QuestionPanelComponent } from './components/question-panel/question-panel.component';
 import { QuizHeaderComponent } from './components/quiz-header/quiz-header.component';
@@ -22,6 +23,7 @@ import { QuizService } from './services/quiz.service';
     OptionsPanelComponent,
     SidePanelComponent,
     CommonModule,
+    FooterComponent,
   ],
   templateUrl: './quiz.component.html',
   styleUrl: './quiz.component.scss',

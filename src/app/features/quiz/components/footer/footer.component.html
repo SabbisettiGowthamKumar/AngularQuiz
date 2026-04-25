@@ -1,0 +1,19 @@
+<footer class="quiz-footer">
+  <div class="quiz-footer__left">
+    <span class="quiz-footer__left--label"> Connect with Developer </span>
+
+    <div class="quiz-footer__left--icon" aria-label="Email">
+      <mat-icon>contact_mail</mat-icon><span>{{ email }}</span>
+    </div>
+
+    <a class="quiz-footer__left--icon" [href]="linkedIn" target="_blank" aria-label="LinkedIn">
+      <img src="/linkedin.svg" alt="LinkedIn" class="quiz-footer__left--icon--svg" />
+    </a>
+  </div>
+
+  <div class="quiz-footer__right">
+    <button type="button" class="quiz-footer__right--submitBtn" (click)="submitQuiz()">
+      Submit Quiz
+    </button>
+  </div>
+</footer>
