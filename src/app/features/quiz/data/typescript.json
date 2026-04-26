@@ -2,27 +2,111 @@
   {
     "id": "typescript-1",
     "topic": "TypeScript",
-    "content": "## What is TypeScript?\n\nChoose the correct answer.",
+    "content": "## Interface Basics\n\n```ts\ninterface User {\n  name: string;\n  age: number;\n}\n\nconst user: User = {\n  name: 'Rahul',\n  age: 25\n};\n```\n\n### What is the main purpose of the `User` interface here?",
     "options": [
-      "A CSS framework",
-      "A superset of JavaScript with static typing",
-      "A database language",
-      "A browser extension"
+      "To define the expected shape and types of the object",
+      "To create HTML elements",
+      "To store values permanently",
+      "To convert TypeScript into CSS"
     ],
-    "correctAnswer": "A superset of JavaScript with static typing"
+    "correctAnswer": "To define the expected shape and types of the object"
   },
   {
     "id": "typescript-2",
     "topic": "TypeScript",
-    "content": "## Which symbol is used to define a type annotation?",
-    "options": [":", "=", "->", "::"],
-    "correctAnswer": ":"
+    "content": "## Optional Chaining\n\n```ts\nconst user = { profile: { city: 'Chennai' } };\nconsole.log(user.profile?.city);\n```\n\n### What will be printed?",
+    "options": ["`undefined`", "`Chennai`", "`null`", "TypeError"],
+    "correctAnswer": "`Chennai`"
   },
   {
     "id": "typescript-3",
     "topic": "TypeScript",
-    "content": "## Which keyword is used to define an interface?",
-    "options": ["type", "class", "interface", "implements"],
-    "correctAnswer": "interface"
+    "content": "## Enums\n\n```ts\nenum Status {\n  Pending,\n  Approved,\n  Rejected\n}\n```\n\n### Why are enums useful?",
+    "options": [
+      "They provide named constant values instead of using random magic numbers or strings",
+      "They replace all functions",
+      "They are only used for CSS classes",
+      "They automatically fetch API data"
+    ],
+    "correctAnswer": "They provide named constant values instead of using random magic numbers or strings"
+  },
+  {
+    "id": "typescript-4",
+    "topic": "TypeScript",
+    "content": "## Decorators\n\nIn Angular, decorators like `@Component()` and `@Injectable()` are commonly used.\n\n### What do decorators generally do?",
+    "options": [
+      "They add metadata/configuration to classes, properties, or methods",
+      "They style HTML pages",
+      "They create database tables",
+      "They remove TypeScript types"
+    ],
+    "correctAnswer": "They add metadata/configuration to classes, properties, or methods"
+  },
+  {
+    "id": "typescript-5",
+    "topic": "TypeScript",
+    "content": "## Utility Types - Partial\n\n```ts\ninterface User {\n  name: string;\n  age: number;\n}\n\nconst updateUser = (data: Partial<User>) => {};\n```\n\n### What does `Partial<User>` mean?",
+    "options": [
+      "All properties of `User` become optional",
+      "All properties become readonly",
+      "Only one property is allowed",
+      "It converts object into array"
+    ],
+    "correctAnswer": "All properties of `User` become optional"
+  },
+  {
+    "id": "typescript-6",
+    "topic": "TypeScript",
+    "content": "## Type vs Interface\n\n### Which statement is true?",
+    "options": [
+      "Both `type` and `interface` can describe object shapes in many cases",
+      "`interface` is only for arrays",
+      "`type` cannot be used in TypeScript",
+      "They are used only in Angular templates"
+    ],
+    "correctAnswer": "Both `type` and `interface` can describe object shapes in many cases"
+  },
+  {
+    "id": "typescript-7",
+    "topic": "TypeScript",
+    "content": "## Union Types\n\n```ts\nlet id: string | number;\nid = 101;\nid = 'EMP101';\n```\n\n### What does `string | number` mean?",
+    "options": [
+      "The variable can hold either a string or a number",
+      "The variable stores both values together always",
+      "The variable becomes boolean",
+      "The variable is readonly"
+    ],
+    "correctAnswer": "The variable can hold either a string or a number"
+  },
+  {
+    "id": "typescript-8",
+    "topic": "TypeScript",
+    "content": "## Generics Basics\n\n```ts\nfunction identity<T>(value: T): T {\n  return value;\n}\n```\n\n### Why use a generic here?",
+    "options": [
+      "To keep the function reusable while preserving the input type",
+      "To convert all values into strings",
+      "To make code run slower",
+      "To disable type checking"
+    ],
+    "correctAnswer": "To keep the function reusable while preserving the input type"
+  },
+  {
+    "id": "typescript-9",
+    "topic": "TypeScript",
+    "content": "## Readonly Property\n\n```ts\ninterface User {\n  readonly id: number;\n  name: string;\n}\n```\n\n### What does `readonly` indicate?",
+    "options": [
+      "The property should not be reassigned after creation",
+      "The property becomes optional",
+      "The property is private automatically",
+      "The property is removed in JavaScript"
+    ],
+    "correctAnswer": "The property should not be reassigned after creation"
+  },
+  {
+    "id": "typescript-10",
+    "topic": "TypeScript",
+    "content": "## Safe Property Access\n\n```ts\ninterface User {\n  name: string;\n  age: number;\n}\n\ntype Keys = keyof User;\n```\n\n### What does `keyof User` produce?",
+    "options": ["`'name' | 'age'`", "`string` only", "`number` only", "`User[]`"],
+    "correctAnswer": "`'name' | 'age'`"
   }
 ]

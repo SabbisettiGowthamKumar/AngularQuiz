@@ -2,56 +2,331 @@
   {
     "id": "angular-fundamentals-1",
     "topic": "Angular Fundamentals",
-    "content": "## What is Angular?\n\nAngular is a modern framework used to build scalable single-page applications.\n\n### Which statement best describes Angular?",
+    "content": "## Predict the Output\n\nConsider the following Angular template and component data:\n\n```ts\nusers = [\n  { id: 1, name: 'Bablu', age: 22 },\n  { id: 2, name: 'Mansoor', age: 25 }\n];\n```\n\n```html\n@for (user of users; track user.id) {\n  <div>\n    <p>Name: {{ user.name }}</p>\n    <p>Age: {{ user.age }}</p>\n\n    @if (user.age >= 25) {\n      <p>Status: Eligible</p>\n    } @else {\n      <p>Status: Not Eligible</p>\n    }\n  </div>\n}\n```\n\n### What will be displayed in the browser?",
     "options": [
-      "A database management system",
-      "A TypeScript-based front-end framework",
-      "A CSS utility library",
-      "A backend runtime environment"
+      "Name: Bablu\nAge: 22\nStatus: Not Eligible\n\nName: Mansoor\nAge: 25\nStatus: Eligible",
+      "Name: Bablu\nAge: 22\nStatus: Eligible\n\nName: Mansoor\nAge: 25\nStatus: Eligible",
+      "Name: Bablu\nAge: 22\nStatus: Not Eligible",
+      "Compilation error because @for cannot be used with @if"
     ],
-    "correctAnswer": "A TypeScript-based front-end framework"
+    "correctAnswer": "Name: Bablu\nAge: 22\nStatus: Not Eligible\n\nName: Mansoor\nAge: 25\nStatus: Eligible"
   },
   {
     "id": "angular-fundamentals-2",
     "topic": "Angular Fundamentals",
-    "content": "## What is the purpose of Angular Components?\n\nAngular applications are built using reusable pieces called components.\n\n### A component usually contains:",
+    "content": "## Predict the Output - ngClass\n\nConsider the following Angular template:\n\n```ts\nisActive = true;\nisDisabled = false;\n```\n\n```html\n<div\n  [ngClass]=\"{\n    active: isActive,\n    disabled: isDisabled,\n    highlight: isActive && !isDisabled\n  }\"\n>\n  Submit Button\n</div>\n```\n\n### Which CSS classes will be applied to the `<div>` element?",
     "options": [
-      "Only stylesheets",
-      "Template, logic, and styles",
-      "Only SQL queries",
-      "Only route definitions"
+      "active highlight",
+      "active disabled",
+      "disabled highlight",
+      "No classes will be applied"
     ],
-    "correctAnswer": "Template, logic, and styles"
+    "correctAnswer": "active highlight"
   },
   {
     "id": "angular-fundamentals-3",
     "topic": "Angular Fundamentals",
-    "content": "## What does data binding do in Angular?\n\nData binding keeps the component class and template connected.\n\n### Choose the best answer.",
+    "content": "## Predict the Output - ngStyle\n\nConsider the following Angular template:\n\n```ts\nisError = true;\nfontSize = 18;\n```\n\n```html\n<p\n  [ngStyle]=\"{\n    color: isError ? 'red' : 'green',\n    'font-size.px': fontSize,\n    'font-weight': 'bold'\n  }\"\n>\n  Status Message\n</p>\n```\n\n### What styles will be applied to the `<p>` element?",
     "options": [
-      "Connects UI and component data",
-      "Creates database tables",
-      "Compiles SCSS files",
-      "Registers routes automatically"
+      "color: red, font-size: 18px, font-weight: bold",
+      "color: green, font-size: 18px, font-weight: normal",
+      "color: red, font-size: 18, font-weight: bold",
+      "No styles will be applied"
     ],
-    "correctAnswer": "Connects UI and component data"
+    "correctAnswer": "color: red, font-size: 18px, font-weight: bold"
   },
   {
     "id": "angular-fundamentals-4",
     "topic": "Angular Fundamentals",
-    "content": "## Which file usually contains component markup?\n\nAngular components commonly separate logic and UI.\n\n### Which file contains the HTML structure?",
-    "options": ["component.ts", "component.scss", "component.html", "angular.json"],
-    "correctAnswer": "component.html"
+    "content": "## Observables and Pipes\n\nYou are displaying API data in the template using an Observable.\n\n### Which approach automatically subscribes and unsubscribes when the component is destroyed?",
+    "options": [
+      "Use `async` pipe in the template",
+      "Call `subscribe()` in constructor only",
+      "Use `setTimeout()` with subscribe",
+      "Store data in localStorage"
+    ],
+    "correctAnswer": "Use `async` pipe in the template"
   },
   {
     "id": "angular-fundamentals-5",
     "topic": "Angular Fundamentals",
-    "content": "## What is the role of `@Component` in Angular?\n\nIt is a decorator used in Angular development.\n\n### Choose the correct answer.",
+    "content": "## Component Communication\n\nA parent component wants to pass data to a child component, and the child component wants to notify the parent when a button is clicked.\n\n### Which Angular features are commonly used?",
     "options": [
-      "Defines a service endpoint",
-      "Marks a class as an Angular component with metadata",
-      "Creates a database schema",
-      "Adds CSS animations automatically"
+      "`@Input()` for parent → child and `@Output()` for child → parent",
+      "`@Output()` for parent → child and pipe for child → parent",
+      "`HostBinding()` for both directions",
+      "`RouterLink` for communication"
     ],
-    "correctAnswer": "Marks a class as an Angular component with metadata"
+    "correctAnswer": "`@Input()` for parent → child and `@Output()` for child → parent"
+  },
+  {
+    "id": "angular-fundamentals-6",
+    "topic": "Angular Fundamentals",
+    "content": "## Content Projection\n\nYou want to reuse a card component and allow custom content inside it.\n\n```html\n<app-card>\n  <h3>Profile</h3>\n  <p>User details here</p>\n</app-card>\n```\n\n### Which Angular feature makes this possible?",
+    "options": ["`<ng-content>`", "`ng-template` only", "`router-outlet`", "`ViewChild`"],
+    "correctAnswer": "`<ng-content>`"
+  },
+  {
+    "id": "angular-fundamentals-7",
+    "topic": "Angular Fundamentals",
+    "content": "## Change Detection Strategy\n\nA dashboard has many components, but data changes only when new inputs arrive or events occur.\n\n### Which strategy can improve performance by reducing unnecessary checks?",
+    "options": [
+      "`ChangeDetectionStrategy.OnPush`",
+      "`DefaultEncapsulation`",
+      "`NgZone.run()`",
+      "`ViewEncapsulation.None`"
+    ],
+    "correctAnswer": "`ChangeDetectionStrategy.OnPush`"
+  },
+  {
+    "id": "angular-fundamentals-8",
+    "topic": "Angular Fundamentals",
+    "content": "## Lifecycle Hooks - Projected Content\n\nA component receives projected content using `<ng-content>`. You want to detect when that projected content has been initialized or changed.\n\n### Which lifecycle hook is most relevant?",
+    "options": [
+      "`ngAfterContentInit` / `ngAfterContentChecked`",
+      "`ngOnInit`",
+      "`ngAfterViewInit`",
+      "`ngOnDestroy`"
+    ],
+    "correctAnswer": "`ngAfterContentInit` / `ngAfterContentChecked`"
+  },
+  {
+    "id": "angular-fundamentals-9",
+    "topic": "Angular Fundamentals",
+    "content": "## Lifecycle Hooks - Input Changes\n\nA child component receives `@Input()` data from a parent. You want to react whenever the input value changes.\n\n### Which hook should be used?",
+    "options": ["`ngOnChanges`", "`ngAfterViewInit`", "`ngDoBootstrap`", "`ngOnDestroy`"],
+    "correctAnswer": "`ngOnChanges`"
+  },
+  {
+    "id": "angular-fundamentals-10",
+    "topic": "Angular Fundamentals",
+    "content": "## Lazy Loading\n\nYour application has multiple feature modules, but users may visit only a few routes.\n\n### What is the main benefit of lazy loading?",
+    "options": [
+      "Loads feature code only when needed, reducing initial bundle size",
+      "Automatically removes all bugs",
+      "Disables routing guards",
+      "Makes CSS load faster only"
+    ],
+    "correctAnswer": "Loads feature code only when needed, reducing initial bundle size"
+  },
+  {
+    "id": "angular-fundamentals-11",
+    "topic": "Angular Fundamentals",
+    "content": "## Template-Driven Forms Syntax\n\nWhich template-driven form syntax correctly creates a form reference variable?",
+    "options": [
+      "`<form #userForm=\"ngForm\">`",
+      "`<form #userForm=\"formGroup\">`",
+      "`<form [formGroup]=\"userForm\">`",
+      "`<form #userForm=\"ngModel\">`"
+    ],
+    "correctAnswer": "`<form #userForm=\"ngForm\">`"
+  },
+  {
+    "id": "angular-fundamentals-12",
+    "topic": "Angular Fundamentals",
+    "content": "## Template-Driven Validation\n\n```html\n<input name=\"email\" ngModel required #email=\"ngModel\" />\n```\n\n### When should you show a required error message?",
+    "options": [
+      "When `email.invalid && email.touched`",
+      "Only when page loads",
+      "When `email.valid`",
+      "When `email.pristine`"
+    ],
+    "correctAnswer": "When `email.invalid && email.touched`"
+  },
+  {
+    "id": "angular-fundamentals-13",
+    "topic": "Angular Fundamentals",
+    "content": "## Reactive Forms Setup\n\nWhich example correctly creates a reactive form using `FormBuilder`?",
+    "options": [
+      "`this.form = this.fb.group({ name: ['', Validators.required] });`",
+      "`this.form = new ngForm({});`",
+      "`this.form = this.fb.model({ name: '' });`",
+      "`this.form = formGroup.required();`"
+    ],
+    "correctAnswer": "`this.form = this.fb.group({ name: ['', Validators.required] });`"
+  },
+  {
+    "id": "angular-fundamentals-14",
+    "topic": "Angular Fundamentals",
+    "content": "## Reactive Forms Methods\n\nYou want to update only the `name` field in a form without providing values for all controls.\n\n### Which method is most suitable?",
+    "options": ["`patchValue()`", "`setValue()`", "`resetValidators()`", "`markAllAsTouched()`"],
+    "correctAnswer": "`patchValue()`"
+  },
+  {
+    "id": "angular-fundamentals-15",
+    "topic": "Angular Fundamentals",
+    "content": "## HTTP Token\n\nYou want to attach an authentication token to every outgoing HTTP request.\n\n### Where is this commonly handled in Angular?",
+    "options": ["HTTP Interceptor", "Pipe", "Route Resolver only", "Component CSS"],
+    "correctAnswer": "HTTP Interceptor"
+  },
+  {
+    "id": "angular-fundamentals-16",
+    "topic": "Angular Fundamentals",
+    "content": "## Detect the mouse hover and add CSS \n\nYou want a directive to listen for mouse hover and also add a CSS class to the host element.\n\n### Which combination is commonly used?",
+    "options": [
+      "`@HostListener()` and `@HostBinding()`",
+      "`@Input()` and `@Output()`",
+      "`@Inject()` and `@Optional()`",
+      "`@ViewChild()` and `@ContentChild()`"
+    ],
+    "correctAnswer": "`@HostListener()` and `@HostBinding()`"
+  },
+  {
+    "id": "angular-fundamentals-17",
+    "topic": "Angular Fundamentals",
+    "content": "## AOT Compilation\n\n```html\n<p>{{ userName }}</p>\n<p>{{ userAge }}</p>\n```\n\n```ts\nexport class AppComponent {\n  userName = 'Bablu';\n}\n```\n\n`userAge` is missing in the component class.\n\n### What is a practical benefit of AOT compilation here?",
+    "options": [
+      "Template errors can be caught during build time",
+      "It automatically creates `userAge`",
+      "It disables template checking",
+      "It converts HTML into CSS"
+    ],
+    "correctAnswer": "Template errors can be caught during build time"
+  },
+  {
+    "id": "angular-fundamentals-18",
+    "topic": "Angular Fundamentals",
+    "content": "## Signals - Writable vs Readonly\n\nWhich statement is correct about Angular signals?",
+    "options": [
+      "`signal()` creates writable state, `computed()` creates readonly derived state",
+      "`computed()` can be updated using `.set()` directly",
+      "All signals are readonly",
+      "`signal()` cannot store arrays or objects"
+    ],
+    "correctAnswer": "`signal()` creates writable state, `computed()` creates readonly derived state"
+  },
+  {
+    "id": "angular-fundamentals-19",
+    "topic": "Angular Fundamentals",
+    "content": "## Signals - Predict the Output\n\n```ts\nconst price = signal(100);\nprice.update(v => v + 50);\nprice.set(200);\nconst finalPrice = computed(() => price() + 20);\n```\n\n### What is the value of `finalPrice()`?",
+    "options": ["220", "170", "200", "120"],
+    "correctAnswer": "220"
+  },
+  {
+    "id": "angular-fundamentals-20",
+    "topic": "Angular Fundamentals",
+    "content": "## package.json Versions\n\nWhat does the difference usually mean?\n\n- `^1.2.3`\n- `~1.2.3`\n\n### Choose the best answer.",
+    "options": [
+      "`^` allows minor + patch updates, `~` mainly allows patch updates",
+      "`^` only allows patch updates, `~` allows major updates",
+      "Both always lock exact same version",
+      "`^` is only for Angular packages"
+    ],
+    "correctAnswer": "`^` allows minor + patch updates, `~` mainly allows patch updates"
+  },
+  {
+    "id": "angular-fundamentals-21",
+    "topic": "Angular Fundamentals",
+    "content": "## Optimization Story\n\nYour team built a product listing page with 5,000 items. Scrolling feels slow, components re-render too often, and the initial load is heavy.\n\n### Which combination is most helpful?",
+    "options": [
+      "Use latest Angular version, OnPush, lazy loading, and `trackBy` / stable tracking",
+      "Use only more CSS files",
+      "Remove TypeScript",
+      "Use `setInterval()` everywhere"
+    ],
+    "correctAnswer": "Use latest Angular version, OnPush, lazy loading, and `trackBy` / stable tracking"
+  },
+  {
+    "id": "angular-fundamentals-22",
+    "topic": "Angular Fundamentals",
+    "content": "## Styling Override\n\nA third-party library style is overriding your component style. You need a quick way to pierce view encapsulation for a specific case.\n\n### Which Angular selector has commonly been used for this purpose?",
+    "options": ["`::ng-deep`", "`@Output()`", "`routerLink`", "`async` pipe"],
+    "correctAnswer": "`::ng-deep`"
+  },
+  {
+    "id": "angular-fundamentals-23",
+    "topic": "Angular Fundamentals",
+    "content": "## Clean Architecture\n\nYou are building a scalable quiz app with many topics and statuses. Which approach improves readability and maintainability the most?",
+    "options": [
+      "Use enums for constants, JSON for data, and clear structured code",
+      "Put everything in one giant component file",
+      "Use random strings everywhere",
+      "Avoid models and naming conventions"
+    ],
+    "correctAnswer": "Use enums for constants, JSON for data, and clear structured code"
+  },
+  {
+    "id": "angular-fundamentals-24",
+    "topic": "Angular Fundamentals",
+    "content": "## Route Guards\n\nWhich statement is correct?",
+    "options": [
+      "`canActivate` controls entering a route, `canDeactivate` controls leaving a route",
+      "`canDeactivate` loads lazy modules",
+      "`canActivate` is only for forms",
+      "Both are used only for CSS protection"
+    ],
+    "correctAnswer": "`canActivate` controls entering a route, `canDeactivate` controls leaving a route"
+  },
+  {
+    "id": "angular-fundamentals-25",
+    "topic": "Angular Fundamentals",
+    "content": "## Dependency Injection\n\nDependency Injection (DI) is a design pattern where Angular creates and provides dependencies such as services instead of components manually creating them.\n\n### Other than constructor injection, what is another modern way to inject a service inside a component or service?",
+    "options": [
+      "Use the `inject()` function",
+      "Use `new MyService()` inside the template",
+      "Use `@Output()` to create the service",
+      "Use `routerLink` to access the service"
+    ],
+    "correctAnswer": "Use the `inject()` function"
+  },
+  {
+    "id": "angular-fundamentals-26",
+    "topic": "Angular Fundamentals",
+    "content": "## Standalone Components and Lazy Loading\n\nAngular now supports standalone components.\n\n### Is it possible to lazy load a component directly instead of lazy loading a module?",
+    "options": [
+      "Yes, it is possible using `loadComponent` syntax",
+      "No, Angular always requires a module for lazy loading",
+      "Only possible with `canActivate` guard",
+      "Only possible in development mode"
+    ],
+    "correctAnswer": "Yes, it is possible using `loadComponent` syntax"
+  },
+  {
+    "id": "angular-fundamentals-27",
+    "topic": "Angular Fundamentals",
+    "content": "## Angular App Rendering\n\nIn modern Angular versions, can the application be rendered on the server first, sent as HTML to the client, and then Angular attach interactivity afterward?\n\n### Choose the best answer.",
+    "options": [
+      "Yes, this is possible using SSR and hydration",
+      "No, Angular always renders only on the client",
+      "Only CSS can be rendered on the server",
+      "Angular can render on server but cannot become interactive"
+    ],
+    "correctAnswer": "Yes, this is possible using SSR and hydration"
+  },
+  {
+    "id": "angular-fundamentals-28",
+    "topic": "Angular Fundamentals",
+    "content": "## Search Suggestions Challenge\n\nYou are building a search box for product suggestions.\n\nRequirements:\n\n- Wait until user stops typing briefly\n- Cancel previous API request when a new value is typed\n- Show only the latest response\n\n### Which RxJS implementation is the best choice?",
+    "options": [
+      "this.searchControl.valueChanges.pipe(\n  debounceTime(300),\n  switchMap(term => this.api.search(term))\n).subscribe();\n",
+      "this.searchControl.valueChanges.pipe(\n  mergeMap(term => this.api.search(term))\n).subscribe();\n",
+      "this.searchControl.valueChanges.pipe(\n  map(term => this.api.search(term))\n).subscribe();\n",
+      "setInterval(() => this.api.search('phone'), 300);\n"
+    ],
+    "correctAnswer": "this.searchControl.valueChanges.pipe(\n  debounceTime(300),\n  switchMap(term => this.api.search(term))\n).subscribe();\n"
+  },
+  {
+    "id": "angular-fundamentals-29",
+    "topic": "Angular Fundamentals",
+    "content": "## Pipes Challenge\n\nConsider the following custom pipe:\n\n```ts\ntransform(value: string): string {\n  const first = value.charAt(0).toUpperCase();\n  const rest = value.slice(1).toLowerCase();\n  return first + rest;\n}\n```\n\nTemplate:\n\n```html\n<p>{{ 'aNGuLAr' | nameFormat }}</p>\n<p>{{ '2025-01-26' | date:'dd/MM/yyyy' }}</p>\n```\n\n### What will be displayed in the browser?",
+    "options": [
+      "Angular  |  26/01/2025",
+      "ANGULAR  |  01/26/2025",
+      "angular  |  26-01-2025",
+      "Angular  |  2025/01/26"
+    ],
+    "correctAnswer": "Angular  |  26/01/2025"
+  },
+  {
+    "id": "angular-fundamentals-30",
+    "topic": "Angular Fundamentals",
+    "content": "## Senior Developer Challenge - Debug the Performance Issue\n\nYour team built an employee dashboard with 3,000 rows. Every few seconds, fresh data arrives from API. Users report UI lag and rows losing focus while typing.\n\nCurrent template:\n\n```html\n@for (employee of employees; track employee) {\n  <app-row [data]=\"employee\"></app-row>\n}\n```\n\nEach refresh creates a new array reference from API.\n\n### What is the best fix?",
+    "options": [
+      "Track by a stable unique id and combine with `OnPush` strategy",
+      "Use more nested `@if` blocks",
+      "Call `detectChanges()` inside every row repeatedly",
+      "Convert all data into strings before rendering"
+    ],
+    "correctAnswer": "Track by a stable unique id and combine with `OnPush` strategy"
   }
 ]

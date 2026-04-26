@@ -2,27 +2,111 @@
   {
     "id": "ngrx-1",
     "topic": "NgRx",
-    "content": "## What is NgRx mainly used for in Angular?",
-    "options": ["Styling components", "State management", "Routing", "Animations"],
-    "correctAnswer": "State management"
+    "content": "## NgRx Flow Basics\n\nWhich option best describes a common NgRx data flow?",
+    "options": [
+      "Component updates DOM directly without state",
+      "Dispatch Action → Effect/Reducer runs → State updates → Selector reads data",
+      "Selector dispatches service automatically",
+      "Reducer calls component methods directly"
+    ],
+    "correctAnswer": "Dispatch Action → Effect/Reducer runs → State updates → Selector reads data"
   },
   {
     "id": "ngrx-2",
     "topic": "NgRx",
-    "content": "## Which NgRx concept describes an event sent to update state?",
-    "options": ["Selector", "Action", "Effect", "ReducerMap"],
-    "correctAnswer": "Action"
+    "content": "## Actions\n\n```ts\nexport const loadUsers = createAction('[Users] Load Users');\n```\n\n### What is the main purpose of this action?",
+    "options": [
+      "To describe an event/intention that can be dispatched to the store",
+      "To create CSS classes",
+      "To replace reducers",
+      "To subscribe automatically"
+    ],
+    "correctAnswer": "To describe an event/intention that can be dispatched to the store"
   },
   {
     "id": "ngrx-3",
     "topic": "NgRx",
-    "content": "## What is a reducer in NgRx?",
+    "content": "## Dispatching\n\n```ts\nthis.store.dispatch(loadUsers());\n```\n\n### What happens here?",
     "options": [
-      "A function that returns new state",
-      "A CSS utility",
-      "An API service",
-      "A route guard"
+      "An action is sent into the NgRx store pipeline",
+      "Reducer is deleted",
+      "Selector is cleared",
+      "Observable is completed"
     ],
-    "correctAnswer": "A function that returns new state"
+    "correctAnswer": "An action is sent into the NgRx store pipeline"
+  },
+  {
+    "id": "ngrx-4",
+    "topic": "NgRx",
+    "content": "## Reducer Responsibility\n\nWhich statement is correct about reducers?",
+    "options": [
+      "Reducers should handle pure state transitions based on actions",
+      "Reducers should call HTTP APIs directly",
+      "Reducers should navigate routes",
+      "Reducers should manipulate DOM elements"
+    ],
+    "correctAnswer": "Reducers should handle pure state transitions based on actions"
+  },
+  {
+    "id": "ngrx-5",
+    "topic": "NgRx",
+    "content": "## Reducer Output\n\n```ts\non(loadUsersSuccess, (state, { users }) => ({\n  ...state,\n  users,\n  loading: false\n}))\n```\n\n### What does this reducer case do?",
+    "options": [
+      "Updates state with loaded users and turns loading off",
+      "Calls API to fetch users",
+      "Deletes the store",
+      "Creates a selector"
+    ],
+    "correctAnswer": "Updates state with loaded users and turns loading off"
+  },
+  {
+    "id": "ngrx-6",
+    "topic": "NgRx",
+    "content": "## Call API and Update State\n\nYou need to call an API when `loadUsers` is dispatched.\n\n### Where is this commonly handled?",
+    "options": ["In an Effect", "Inside HTML template", "Inside selector", "Inside enum file"],
+    "correctAnswer": "In an Effect"
+  },
+  {
+    "id": "ngrx-7",
+    "topic": "NgRx",
+    "content": "## Effect Pattern\n\n```ts\nactions$.pipe(\n  ofType(loadUsers),\n  switchMap(() => this.userService.getUsers())\n)\n```\n\n### What is the role of `ofType(loadUsers)` here?",
+    "options": [
+      "Filters the actions stream and reacts only to `loadUsers`",
+      "Creates reducer state",
+      "Selects data from store",
+      "Stops all actions"
+    ],
+    "correctAnswer": "Filters the actions stream and reacts only to `loadUsers`"
+  },
+  {
+    "id": "ngrx-8",
+    "topic": "NgRx",
+    "content": "## Selectors\n\n```ts\nthis.users$ = this.store.select(selectAllUsers);\n```\n\n### Why are selectors useful?",
+    "options": [
+      "They read specific slices of store state efficiently",
+      "They dispatch actions automatically",
+      "They replace components",
+      "They create routes"
+    ],
+    "correctAnswer": "They read specific slices of store state efficiently"
+  },
+  {
+    "id": "ngrx-9",
+    "topic": "NgRx",
+    "content": "## Success and Failure Actions\n\nAfter an API request in an Effect, why do developers often dispatch both success and failure actions?",
+    "options": [
+      "To handle loaded data and error states separately in the store",
+      "Because NgRx requires two actions for every file",
+      "To increase bundle size",
+      "To avoid reducers"
+    ],
+    "correctAnswer": "To handle loaded data and error states separately in the store"
+  },
+  {
+    "id": "ngrx-10",
+    "topic": "NgRx",
+    "content": "## Predict the State\n\nInitial state:\n\n```ts\n{ count: 0 }\n```\n\nReducer:\n\n```ts\non(increment, state => ({ ...state, count: state.count + 1 }))\n```\n\nActions dispatched:\n\n```ts\nincrement();\nincrement();\n```\n\n### What will be the final state?",
+    "options": ["`{ count: 1 }`", "`{ count: 2 }`", "`{ count: 0 }`", "`{ count: 3 }`"],
+    "correctAnswer": "`{ count: 2 }`"
   }
 ]

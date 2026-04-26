@@ -17,7 +17,7 @@ body {
 
 .small-title-style {
   font-size: 18px !important;
-  font-weight: 400;
+  font-weight: 200;
   color: wheat;
 }
 
@@ -37,7 +37,7 @@ body {
 
 /* custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 7px;
 }
 
 ::-webkit-scrollbar-track {
@@ -45,7 +45,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2a2a2a;
+  background: rgb(202, 194, 181);
   border-radius: 999px;
 }
 

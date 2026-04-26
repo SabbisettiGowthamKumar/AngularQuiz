@@ -2,32 +2,101 @@
   {
     "id": "git-1",
     "topic": "Git",
-    "content": "## What does `git clone` do?",
+    "content": "## Wrong Conflict Resolution\n\nYou started a merge, resolved conflicts incorrectly, and want to cancel the merge process and return to the previous state.\n\n### Which command helps here?",
     "options": [
-      "Deletes a branch",
-      "Copies a remote repository locally",
-      "Creates a merge conflict",
-      "Pushes changes"
+      "`git reset --hard`",
+      "`git merge --abort`",
+      "`git stash pop`",
+      "`git commit --amend`"
     ],
-    "correctAnswer": "Copies a remote repository locally"
+    "correctAnswer": "`git merge --abort`"
   },
   {
     "id": "git-2",
     "topic": "Git",
-    "content": "## Which command stages changes for commit?",
-    "options": ["git push", "git add", "git merge", "git pull"],
-    "correctAnswer": "git add"
+    "content": "## Create a Local Branch\n\n### Which command creates a new local branch and switches to it immediately?",
+    "options": [
+      "`git branch feature/login`",
+      "`git checkout feature/login`",
+      "`git checkout -b feature/login`",
+      "`git merge feature/login`"
+    ],
+    "correctAnswer": "`git checkout -b feature/login`"
   },
   {
     "id": "git-3",
     "topic": "Git",
-    "content": "## What does `git status` show?",
+    "content": "## Need Specific Commit\n\nA bug fix commit exists in another branch, and you want only that specific commit in your current branch.\n\n### Which command is commonly used?",
     "options": [
-      "Browser history",
-      "Repository state and changed files",
-      "Remote server logs",
-      "Deleted commits"
+      "`git clone <commit-id>`",
+      "`git cherry-pick <commit-id>`",
+      "`git merge <commit-id>`",
+      "`git switch <commit-id>`"
     ],
-    "correctAnswer": "Repository state and changed files"
+    "correctAnswer": "`git cherry-pick <commit-id>`"
+  },
+  {
+    "id": "git-4",
+    "topic": "Git",
+    "content": "## Remote Branch Updates\n\nA teammate created a new branch on remote. You want to download latest remote references to your local repository without merging.\n\n### Which command should you run?",
+    "options": ["`git fetch`", "`git commit`", "`git stash`", "`git init`"],
+    "correctAnswer": "`git fetch`"
+  },
+  {
+    "id": "git-5",
+    "topic": "Git",
+    "content": "## Save Local Changes Temporarily\n\nYou have uncommitted changes in your feature branch. Before pulling latest `master`, you want to temporarily save your work to reduce conflicts.\n\n### Which command is most suitable?",
+    "options": ["`git merge --abort`", "`git stash`", "`git cherry-pick`", "`git tag`"],
+    "correctAnswer": "`git stash`"
+  },
+  {
+    "id": "git-6",
+    "topic": "Git",
+    "content": "## Correct Git Flow\n\nYou want to work on a feature and raise a PR.\n\n### Which sequence is the best practice?",
+    "options": [
+      "`git push` → `git commit` → create branch → raise PR",
+      "`git fetch` → `git checkout feature-branch` → do work → `git stash` → pull latest master → apply stash → resolve conflicts → `git status` → `git commit` → `git push`",
+      "`git merge master` → delete repo → raise PR",
+      "`git init` → `git clone` → `git reset`"
+    ],
+    "correctAnswer": "`git fetch` → `git checkout feature-branch` → do work → `git stash` → pull latest master → apply stash → resolve conflicts → `git status` → `git commit` → `git push`"
+  },
+  {
+    "id": "git-7",
+    "topic": "Git",
+    "content": "## Pair Programming Scenario\n\nYou and a teammate are coding on the same branch. Their latest commits are on remote, and you need them locally before continuing.\n\n### Which command is commonly used first?",
+    "options": ["`git pull`", "`git stash drop`", "`git rm -rf .`", "`git tag latest`"],
+    "correctAnswer": "`git pull`"
+  },
+  {
+    "id": "git-8",
+    "topic": "Git",
+    "content": "## Rebase Concept\n\nWhy do teams often use `git rebase` on a feature branch before raising a PR?",
+    "options": [
+      "To rewrite history into a cleaner linear sequence based on latest target branch",
+      "To permanently delete remote repository",
+      "To replace all commits with one empty commit",
+      "To skip code review automatically"
+    ],
+    "correctAnswer": "To rewrite history into a cleaner linear sequence based on latest target branch"
+  },
+  {
+    "id": "git-9",
+    "topic": "Git",
+    "content": "## Ignore Files\n\nYou do not want `node_modules/` and `.env` files to appear in staging or commits.\n\n### What is the correct approach?",
+    "options": [
+      "Add them to `.gitignore`",
+      "Rename the files",
+      "Use `git merge --abort`",
+      "Use `git checkout -b ignore-files`"
+    ],
+    "correctAnswer": "Add them to `.gitignore`"
+  },
+  {
+    "id": "git-10",
+    "topic": "Git",
+    "content": "## The Missing Work Mystery 🔥\n\nYou accidentally ran a command that changed your branch and now your latest local commits are no longer visible in the current history.\n\nYour teammate says:\n\n> \"Don't panic. Git usually remembers where HEAD and branches pointed before.\"\n\nYou need to find the lost commit hash and recover your work.\n\n### Which Git command is the best first step?",
+    "options": ["`git reflog`", "`git merge --abort`", "`git stash clear`", "`git rm -rf .`"],
+    "correctAnswer": "`git reflog`"
   }
 ]

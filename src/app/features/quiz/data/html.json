@@ -2,46 +2,119 @@
   {
     "id": "html-1",
     "topic": "HTML",
-    "content": "## What does HTML stand for?\n\nHTML is the standard markup language used to structure web pages.\n\n### Choose the correct answer.",
+    "content": "## Inline vs Block Elements\n\nWhich option correctly groups common **inline** and **block** HTML elements?",
     "options": [
-      "Hyper Text Markup Language",
-      "High Transfer Machine Language",
-      "Hyperlink Text Management Language",
-      "Home Tool Markup Language"
+      "Inline: `span`, `a`, `strong`  |  Block: `div`, `p`, `section`",
+      "Inline: `div`, `p`, `section`  |  Block: `span`, `a`, `strong`",
+      "Inline: `form`, `header`, `footer`  |  Block: `img`, `label`, `em`",
+      "All HTML elements behave the same by default"
     ],
-    "correctAnswer": "Hyper Text Markup Language"
+    "correctAnswer": "Inline: `span`, `a`, `strong`  |  Block: `div`, `p`, `section`"
   },
   {
     "id": "html-2",
     "topic": "HTML",
-    "content": "## Which HTML element is used for the largest heading?\n\nHeadings help structure content hierarchically.\n\n### Select the correct tag.",
-    "options": ["<heading>", "<h6>", "<h1>", "<head>"],
-    "correctAnswer": "<h1>"
+    "content": "## Semantic vs Non-Semantic Tags\n\nWhich option correctly separates semantic and non-semantic HTML elements?",
+    "options": [
+      "Semantic: `header`, `main`, `article`  |  Non-semantic: `div`, `span`",
+      "Semantic: `div`, `span`  |  Non-semantic: `header`, `footer`",
+      "Semantic: `br`, `hr`  |  Non-semantic: `section`, `nav`",
+      "All HTML tags are semantic"
+    ],
+    "correctAnswer": "Semantic: `header`, `main`, `article`  |  Non-semantic: `div`, `span`"
   },
   {
     "id": "html-3",
     "topic": "HTML",
-    "content": "## What is the purpose of semantic HTML?\n\nSemantic elements describe the meaning of content rather than only presentation.\n\n### Choose the best answer.",
+    "content": "## Why Not Use `div` Everywhere?\n\nA developer builds an entire page using only `<div>` tags.\n\n### What is the biggest drawback?",
     "options": [
-      "To increase file size",
-      "To improve structure, accessibility, and readability",
-      "To replace CSS",
-      "To execute JavaScript faster"
+      "Poor accessibility and weaker document meaning for search engines and assistive tools",
+      "The page cannot load CSS",
+      "JavaScript stops working",
+      "`div` tags are deprecated in HTML"
     ],
-    "correctAnswer": "To improve structure, accessibility, and readability"
+    "correctAnswer": "Poor accessibility and weaker document meaning for search engines and assistive tools"
   },
   {
     "id": "html-4",
     "topic": "HTML",
-    "content": "## Which tag is commonly used to create a hyperlink?\n\nLinks allow navigation between pages and resources.\n\n### Choose the correct element.",
-    "options": ["<link>", "<a>", "<href>", "<navlink>"],
-    "correctAnswer": "<a>"
+    "content": "## Accessibility Basics\n\nWhich HTML elements are most helpful for accessibility when building page structure and forms?",
+    "options": [
+      "`label`, `button`, `nav`, `main`, `header`",
+      "`div`, `span`, `br`, `hr` only",
+      "`style`, `script`, `meta`",
+      "`b`, `i`, `u` only"
+    ],
+    "correctAnswer": "`label`, `button`, `nav`, `main`, `header`"
   },
   {
     "id": "html-5",
     "topic": "HTML",
-    "content": "## Which element is used to display an image in HTML?\n\n### Select the correct tag.",
-    "options": ["<image>", "<picture-src>", "<img>", "<src>"],
-    "correctAnswer": "<img>"
+    "content": "## SEO Basics\n\nWhich HTML tags help search engines understand and rank your page better?",
+    "options": [
+      "`title`, `meta description`, semantic tags like `main` and `article`",
+      "`div`, `span`, `hr`",
+      "`b`, `i`, `u`",
+      "`script` only"
+    ],
+    "correctAnswer": "`title`, `meta description`, semantic tags like `main` and `article`"
+  },
+  {
+    "id": "html-6",
+    "topic": "HTML",
+    "content": "## Attributes - Disable a Field\n\nWhich HTML code correctly disables an input field?",
+    "options": [
+      "`<input type='text' disabled>`",
+      "`<input type='text' disable='true'>`",
+      "`<input type='text' readonly='disabled'>`",
+      "`<input type='text' stop>`"
+    ],
+    "correctAnswer": "`<input type='text' disabled>`"
+  },
+  {
+    "id": "html-7",
+    "topic": "HTML",
+    "content": "## Browser Validation\n\nYou need a login form with email and password fields.\n\n### Which attributes ensure the browser validates the email format automatically?",
+    "options": [
+      "`type='email'` on the email input and `required` if mandatory",
+      "`type='text'` and `maxlength='10'`",
+      "`placeholder='email'` only",
+      "`autocomplete='off'` only"
+    ],
+    "correctAnswer": "`type='email'` on the email input and `required` if mandatory"
+  },
+  {
+    "id": "html-8",
+    "topic": "HTML",
+    "content": "## The `<head>` Tag\n\nWhich statement is correct about the `<head>` element in a valid HTML document?",
+    "options": [
+      "There should be only one `<head>` element containing metadata like title, meta tags, links, and scripts",
+      "You should create one `<head>` tag for every section",
+      "`<head>` is optional and can be repeated many times inside `<body>`",
+      "`<head>` is used to display visible page content"
+    ],
+    "correctAnswer": "There should be only one `<head>` element containing metadata like title, meta tags, links, and scripts"
+  },
+
+  {
+    "id": "html-9",
+    "topic": "HTML",
+    "content": "## Third-Party UI Integration\n\nYour project needs to embed an external dashboard or third-party UI inside your page.\n\n### Which HTML element is commonly used for this purpose?",
+    "options": ["`<iframe>`", "`<canvas>`", "`<template>`", "`<fieldset>`"],
+    "correctAnswer": "`<iframe>`"
+  },
+  {
+    "id": "html-10",
+    "topic": "HTML",
+    "content": "## Script Loading Strategy\n\nYou are integrating an analytics script into your website.\n\n```html\n<script src=\"analytics.js\" ?></script>\n```\n\nRequirements:\n\n- Download in parallel\n- Do not block HTML parsing\n- Execute as soon as the file is ready\n- Execution order is not important\n\n### Which attribute should replace `?` in the script tag?",
+    "options": ["`defer`", "`disabled`", "Default (no attribute)", "`async`"],
+    "correctAnswer": "`async`"
+  },
+  {
+    "id": "html-11",
+    "topic": "HTML",
+    "content": "## Script Loading Strategy\n\nYou are loading Angular application bundles in production.\n\n```html\n<script src=\"runtime.js\" ?></script>\n<script src=\"polyfills.js\" ?></script>\n<script src=\"main.js\" ?></script>\n```\n\nThe files should:\n\n- Download without blocking HTML parsing\n- Execute after HTML parsing completes\n- Run in correct order\n\n### Which attribute should replace `?` in the script tags?",
+    "options": ["`async`", "Default (no attribute)", "`defer`", "`disabled`"],
+    "correctAnswer": "`defer`"
   }
 ]

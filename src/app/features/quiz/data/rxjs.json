@@ -2,22 +2,126 @@
   {
     "id": "rxjs-1",
     "topic": "RxJS",
-    "content": "## What does an Observable represent?",
-    "options": ["A CSS selector", "A stream of asynchronous data", "A component", "A route"],
-    "correctAnswer": "A stream of asynchronous data"
+    "content": "## Cold vs Hot Observables\n\nWhich option correctly identifies the scenarios?\n\n1. An HTTP API call starts fresh for each new subscriber.\n2. A live WebSocket stock-price stream is already broadcasting values.\n\n### Choose the best answer.",
+    "options": ["1 = Hot, 2 = Cold", "1 = Cold, 2 = Hot", "Both are Cold", "Both are Hot"],
+    "correctAnswer": "1 = Cold, 2 = Hot"
   },
   {
     "id": "rxjs-2",
     "topic": "RxJS",
-    "content": "## Which operator transforms emitted values?",
-    "options": ["map", "tap", "delay", "take"],
-    "correctAnswer": "map"
+    "content": "## Operator Choice - Search Suggestions\n\nA user types quickly in a search box. You want to cancel the previous API request and use only the latest typed value.\n\n### Which operator is best?",
+    "options": ["`mergeMap`", "`concatMap`", "`switchMap`", "`exhaustMap`"],
+    "correctAnswer": "`switchMap`"
   },
   {
     "id": "rxjs-3",
     "topic": "RxJS",
-    "content": "## Which operator is commonly used for side effects like logging?",
-    "options": ["tap", "map", "filter", "switchMap"],
-    "correctAnswer": "tap"
+    "content": "## Operator Choice - Parallel Requests\n\nYou need to upload multiple files and allow all uploads to run at the same time.\n\n### Which operator is most suitable?",
+    "options": ["`concatMap`", "`mergeMap`", "`switchMap`", "`takeUntil`"],
+    "correctAnswer": "`mergeMap`"
+  },
+  {
+    "id": "rxjs-4",
+    "topic": "RxJS",
+    "content": "## Operator Choice - Sequential Queue\n\nYou are saving form steps one after another. Each request should wait until the previous request finishes.\n\n### Which operator is best?",
+    "options": ["`mergeMap`", "`concatMap`", "`switchMap`", "`tap`"],
+    "correctAnswer": "`concatMap`"
+  },
+  {
+    "id": "rxjs-5",
+    "topic": "RxJS",
+    "content": "## Operator Choice - Prevent Double Submit\n\nA user clicks a payment button repeatedly. While one request is running, ignore further clicks.\n\n### Which operator is best?",
+    "options": ["`switchMap`", "`mergeMap`", "`exhaustMap`", "`combineLatest`"],
+    "correctAnswer": "`exhaustMap`"
+  },
+  {
+    "id": "rxjs-6",
+    "topic": "RxJS",
+    "content": "## Combining Requests\n\nYou need user profile data and settings data before showing the dashboard. Continue only when both API calls complete.\n\n### Which operator is best?",
+    "options": ["`forkJoin`", "`tap`", "`Subject`", "`retry(3)`"],
+    "correctAnswer": "`forkJoin`"
+  },
+  {
+    "id": "rxjs-7",
+    "topic": "RxJS",
+    "content": "## Live Combined Values\n\nYou have one stream for selected currency and another stream for latest exchange rate. UI should update whenever either value changes after both emitted once.\n\n### Which operator is best?",
+    "options": ["`combineLatest`", "`forkJoin`", "`concatMap`", "`exhaustMap`"],
+    "correctAnswer": "`combineLatest`"
+  },
+  {
+    "id": "rxjs-8",
+    "topic": "RxJS",
+    "content": "## Retry Strategy\n\nAn API may fail due to temporary network issues. You want RxJS to automatically retry three times before finally showing an error.\n\n### Which operator is used?",
+    "options": ["`retry(3)`", "`tap(3)`", "`catchError(3)`", "`next(3)`"],
+    "correctAnswer": "`retry(3)`"
+  },
+  {
+    "id": "rxjs-9",
+    "topic": "RxJS",
+    "content": "## Subjects Comparison\n\nWhich statement is correct?",
+    "options": [
+      "`Subject` stores last value automatically for new subscribers",
+      "`BehaviorSubject` requires an initial value and emits current/latest value to new subscribers",
+      "`ReplaySubject` can emit only one value ever",
+      "All three behave exactly the same"
+    ],
+    "correctAnswer": "`BehaviorSubject` requires an initial value and emits current/latest value to new subscribers"
+  },
+  {
+    "id": "rxjs-10",
+    "topic": "RxJS",
+    "content": "## tap and pipe\n\nWhy is `tap()` commonly used inside `pipe()`?",
+    "options": [
+      "To perform side effects like logging, debugging, analytics without changing emitted data",
+      "To unsubscribe automatically",
+      "To convert Observable into Promise only",
+      "To delay values by default"
+    ],
+    "correctAnswer": "To perform side effects like logging, debugging, analytics without changing emitted data"
+  },
+  {
+    "id": "rxjs-11",
+    "topic": "RxJS",
+    "content": "## Debounce Input\n\nA search API should be called only after the user stops typing for 400ms.\n\n### Which operator is most suitable?",
+    "options": ["`mergeMap`", "`debounceTime(400)`", "`forkJoin`", "`filter(Boolean)`"],
+    "correctAnswer": "`debounceTime(400)`"
+  },
+  {
+    "id": "rxjs-12",
+    "topic": "RxJS",
+    "content": "## Unsubscribe Multiple Streams\n\nA component has many subscriptions. When the component is destroyed, all subscriptions should stop using a single pattern.\n\n### Which approach is commonly used?",
+    "options": [
+      "Use `takeUntil(destroy$)` in streams, then call `destroy$.next()` and `destroy$.complete()` in `ngOnDestroy()`",
+      "Use `setTimeout()` to clear subscriptions",
+      "Reload the page",
+      "Use `map()` in every stream"
+    ],
+    "correctAnswer": "Use `takeUntil(destroy$)` in streams, then call `destroy$.next()` and `destroy$.complete()` in `ngOnDestroy()`"
+  },
+  {
+    "id": "rxjs-13",
+    "topic": "RxJS",
+    "content": "## Predict the Output\n\n```ts\nimport { Subject } from 'rxjs';\n\nconst subject = new Subject<number>();\n\nsubject.subscribe(v => console.log('A:', v));\nsubject.next(1);\n\nsubject.subscribe(v => console.log('B:', v));\nsubject.next(2);\n```\n\n### What will be logged?",
+    "options": ["`A:1`, `A:2`, `B:2`", "`A:1`, `B:1`, `A:2`, `B:2`", "`A:1`, `A:2`", "`B:2` only"],
+    "correctAnswer": "`A:1`, `A:2`, `B:2`"
+  },
+  {
+    "id": "rxjs-14",
+    "topic": "RxJS",
+    "content": "## Predict the Output\n\n```ts\nimport { of } from 'rxjs';\nimport { switchMap, mergeMap } from 'rxjs/operators';\n\nof('X', 'Y').pipe(\n  switchMap(x => of(x + '1', x + '2')),\n  mergeMap(y => of(y + 'A', y + 'B'))\n).subscribe(console.log);\n```\n\n### What will be printed?",
+    "options": [
+      "`X1A X1B X2A X2B Y1A Y1B Y2A Y2B`",
+      "`Y1A Y1B Y2A Y2B`",
+      "`X1A Y1A X2A Y2A`",
+      "`X1 X2 Y1 Y2`"
+    ],
+    "correctAnswer": "`Y1A Y1B Y2A Y2B`"
+  },
+  {
+    "id": "rxjs-15",
+    "topic": "RxJS",
+    "content": "## Predict the Output\n\n```ts\nimport { combineLatest, of } from 'rxjs';\n\nconst obs1 = of(1, 2);\nconst obs2 = of(9);\n\ncombineLatest([obs1, obs2]).subscribe(console.log);\n```\n\n### What will be emitted?",
+    "options": ["`[1, 9]` then `[2, 9]`", "`[2, 9]` only", "`[9, 2]` only", "Nothing"],
+    "correctAnswer": "`[2, 9]` only"
   }
 ]

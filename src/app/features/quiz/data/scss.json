@@ -2,32 +2,173 @@
   {
     "id": "scss-1",
     "topic": "SCSS",
-    "content": "## What is SCSS?\n\nChoose the best answer.",
+    "content": "## BEM Naming Convention\n\nConsider these selectors:\n\n```scss\nA) .menu { }\nB) .menu__item { }\nC) .menu__item--active { }\nD) .menu-active-item { }\n```\n\n### Which option correctly identifies valid BEM examples?",
     "options": [
-      "A JavaScript library",
-      "A CSS preprocessor syntax",
-      "A database tool",
-      "A browser engine"
+      "Only A is correct",
+      "A, B and C are correct",
+      "Only D is correct",
+      "Bro, there is no BEM in SCSS 😄"
     ],
-    "correctAnswer": "A CSS preprocessor syntax"
+    "correctAnswer": "A, B and C are correct"
   },
   {
     "id": "scss-2",
     "topic": "SCSS",
-    "content": "## Which symbol is used to declare a variable in SCSS?",
-    "options": ["@", "$", "#", "%"],
-    "correctAnswer": "$"
+    "content": "## Box Model Challenge\n\n```scss\n.card {\n  width: 200px;\n  padding: 20px;\n  border: 5px solid black;\n  margin: 10px;\n}\n```\n\n### Which explanation best describes how this card will be spaced and displayed?",
+    "options": [
+      "The card keeps 10px space from surrounding elements, has a 5px border, and content sits with 20px inner space from the border",
+      "The card keeps 20px outside space, border appears inside content, and margin is 5px",
+      "The card has no outer spacing because width is already 200px",
+      "Padding pushes nearby elements away, while margin adds space inside the card"
+    ],
+    "correctAnswer": "The card keeps 10px space from surrounding elements, has a 5px border, and content sits with 20px inner space from the border"
   },
   {
     "id": "scss-3",
     "topic": "SCSS",
-    "content": "## What is nesting in SCSS?",
+    "content": "## Positioning Basics\n\n### To apply `top`, `left`, `right`, or `bottom` offsets effectively, which position values are commonly used?",
     "options": [
-      "Writing selectors inside selectors",
-      "Importing JavaScript files",
-      "Creating database relations",
-      "Compressing CSS automatically"
+      "`static` only",
+      "`inherit` only",
+      "`block` and `inline`",
+      "`relative`, `absolute`, `fixed`, `sticky`"
     ],
-    "correctAnswer": "Writing selectors inside selectors"
+    "correctAnswer": "`relative`, `absolute`, `fixed`, `sticky`"
+  },
+  {
+    "id": "scss-4",
+    "topic": "SCSS",
+    "content": "## CSS Units\n\nWhich statement is correct?",
+    "options": [
+      "`px` is relative to parent width, `rem` is fixed",
+      "`rem` is based on root font size, `%` is relative, `fr` shares free grid space",
+      "`fr` works only in flexbox",
+      "`%` always means viewport height"
+    ],
+    "correctAnswer": "`rem` is based on root font size, `%` is relative, `fr` shares free grid space"
+  },
+  {
+    "id": "scss-5",
+    "topic": "SCSS",
+    "content": "## Opacity\n\n```scss\n.box {\n  opacity: 0.5;\n}\n```\n\n### What happens?",
+    "options": [
+      "Only background becomes transparent",
+      "Element and its content become semi-transparent",
+      "Opacity changes width to 50%",
+      "Text becomes bold"
+    ],
+    "correctAnswer": "Element and its content become semi-transparent"
+  },
+  {
+    "id": "scss-6",
+    "topic": "SCSS",
+    "content": "## Flexbox Alignment\n\n```scss\n.container {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n```\n\n### How will items be placed in a row layout?",
+    "options": [
+      "Left aligned only",
+      "Spread equally with gaps",
+      "Stacked vertically by default",
+      "Centered horizontally and vertically"
+    ],
+    "correctAnswer": "Centered horizontally and vertically"
+  },
+  {
+    "id": "scss-7",
+    "topic": "SCSS",
+    "content": "## Grid Layout\n\n```scss\n.container {\n  display: grid;\n  grid-template-columns: 1fr 2fr;\n  grid-template-rows: 100px auto;\n}\n```\n\n### Which description is correct?",
+    "options": [
+      "Two equal columns and fixed rows",
+      "Two columns where second is twice as wide as first, first row is 100px",
+      "Grid creates only one column",
+      "`fr` means fixed pixels"
+    ],
+    "correctAnswer": "Two columns where second is twice as wide as first, first row is 100px"
+  },
+  {
+    "id": "scss-8",
+    "topic": "SCSS",
+    "content": "## Flex Shorthand\n\n### What does `flex: 1;` usually mean?",
+    "options": [
+      "Equivalent to `flex: 1 1 0%` and item can grow to fill space",
+      "Item cannot grow or shrink",
+
+      "Sets width to 1px",
+      "Only applies in grid layout"
+    ],
+    "correctAnswer": "Equivalent to `flex: 1 1 0%` and item can grow to fill space"
+  },
+  {
+    "id": "scss-9",
+    "topic": "SCSS",
+    "content": "## Content Goes Out Of The Container\n\nText content is exceeding the box height and width.\n\n### Which property helps control extra content or scrolling?",
+    "options": ["`overflow`", "`visibility`", "`display`", "`float`"],
+    "correctAnswer": "`overflow`"
+  },
+  {
+    "id": "scss-10",
+    "topic": "SCSS",
+    "content": "## Reusing Styles with Modern SCSS\n\nYou created a `_variables.scss` file containing colors and spacing tokens.\n\n### Which is the recommended modern SCSS way to use those variables inside another `.scss` file?",
+    "options": [
+      "@use 'variables';",
+      "<link rel='scss' href='variables.scss'>",
+      "include 'variables';",
+      "@share 'variables';"
+    ],
+    "correctAnswer": "@use 'variables';"
+  },
+  {
+    "id": "scss-11",
+    "topic": "SCSS",
+    "content": "## CSS Priority Challenge\n\nThe same property is applied with different values in:\n\n- Global `styles.scss`\n- Parent component style\n- Current component style\n\n### If selectors have similar specificity, which style usually wins for the current component element?",
+    "options": [
+      "Browser random choice",
+      "Current component style",
+      "Global style always",
+      "Parent component always"
+    ],
+    "correctAnswer": "Current component style"
+  },
+  {
+    "id": "scss-12",
+    "topic": "SCSS",
+    "content": "## Famous Interview Question\n\nA block element has a fixed width.\n\n### Which classic approach centers it horizontally?",
+    "options": [
+      "padding: auto;",
+      "text-align: center; on itself",
+      "opacity: 0;",
+      "margin: 0 auto;"
+    ],
+    "correctAnswer": "margin: 0 auto;"
+  },
+
+  {
+    "id": "scss-13",
+    "topic": "SCSS",
+    "content": "## Nesting in SCSS\n\n```scss\n.card {\n  padding: 16px;\n\n  &__title {\n    font-size: 18px;\n  }\n\n  &:hover {\n    box-shadow: 0 4px 12px rgba(0,0,0,0.2);\n  }\n}\n```\n\n### What is the main advantage of this SCSS feature?",
+    "options": [
+      "It allows related selectors to stay grouped and improves readability",
+      "It converts SCSS into Java automatically",
+      "It removes the need for CSS classes",
+      "It only works in Angular projects"
+    ],
+    "correctAnswer": "It allows related selectors to stay grouped and improves readability"
+  },
+  {
+    "id": "scss-14",
+    "topic": "SCSS",
+    "content": "## Mixins\n\nYou need the same button styles in multiple components with small variations.\n\n### Which SCSS feature is best for reusable style patterns with optional parameters?",
+    "options": ["@mixin and @include", "@for loop only", "opacity", "z-index"],
+    "correctAnswer": "@mixin and @include"
+  },
+  {
+    "id": "scss-15",
+    "topic": "SCSS",
+    "content": "## Responsive Design\n\nYou want a sidebar to hide on small screens and show on larger screens.\n\n### Which approach is most suitable?",
+    "options": [
+      "Use media queries - @media (max-width: 768px)",
+      "Use only margin: auto",
+      "Use position: static",
+      "Use border: none"
+    ],
+    "correctAnswer": "Use media queries - @media (max-width: 768px)"
   }
 ]

@@ -2,27 +2,221 @@
   {
     "id": "javascript-1",
     "topic": "JavaScript",
-    "content": "## What is JavaScript primarily used for?\n\nChoose the best answer.",
+    "content": "## Predict the Output\n\n```js\nconsole.log(a);\nconsole.log(b);\nconsole.log(c);\n\nvar a = 10;\nlet b = 20;\nconst c = 30;\n```\n\n### What happens when this code runs?",
     "options": [
-      "Styling web pages",
-      "Adding interactivity to web pages",
-      "Managing databases only",
-      "Creating HTML structure"
+      "`undefined`, then ReferenceError for `b`, so execution stops before `c`",
+      "`10`, `20`, `30`",
+      "ReferenceError for all three variables",
+      "`undefined`, `undefined`, `undefined`"
     ],
-    "correctAnswer": "Adding interactivity to web pages"
+    "correctAnswer": "`undefined`, then ReferenceError for `b`, so execution stops before `c`"
   },
   {
     "id": "javascript-2",
     "topic": "JavaScript",
-    "content": "## Which keyword is used to declare a block-scoped variable?",
-    "options": ["var", "let", "define", "constvar"],
-    "correctAnswer": "let"
+    "content": "## Predict the Output\n\n```js\nconsole.log(typeof null);\n```\n\n### What will be printed?",
+    "options": [
+      "`null`",
+      "`undefined`",
+      "`object` (classic historical JavaScript bug behavior)",
+      "`boolean`"
+    ],
+    "correctAnswer": "`object` (classic historical JavaScript bug behavior)"
   },
   {
     "id": "javascript-3",
     "topic": "JavaScript",
-    "content": "## What is the output type of `typeof []` in JavaScript?",
-    "options": ["array", "object", "list", "undefined"],
-    "correctAnswer": "object"
+    "content": "## Type Conversion Challenge\n\n```js\nconst result = parseInt('100px') + parseInt('12.7') + Number(true);\nconsole.log(result);\n```\n\n### What will be the output?",
+    "options": ["`113.7`", "`114`", "`NaN`", "`10112`"],
+    "correctAnswer": "`113.7`"
+  },
+  {
+    "id": "javascript-4",
+    "topic": "JavaScript",
+    "content": "## Shallow Copy Challenge\n\n```js\nconst user = {\n  name: 'Rahul',\n  address: {\n    city: 'Hyderabad'\n  }\n};\n\nconst copied = { ...user };\ncopied.address.city = 'Chennai';\n\nconsole.log(user.address.city);\n```\n\n### What will be printed?",
+    "options": ["`Hyderabad`", "`undefined`", "`Chennai`", "ReferenceError"],
+    "correctAnswer": "`Chennai`"
+  },
+  {
+    "id": "javascript-5",
+    "topic": "JavaScript",
+    "content": "## Deep Copy Challenge\n\nYou need to create a completely independent deep copy of a plain object so nested changes do not affect the original.\n\n### Which option is the most suitable among the following?",
+    "options": [
+      "`const copy = original;`",
+      "`const copy = { ...original };`",
+      "`const copy = Object.assign({}, original);`",
+      "`const copy = JSON.parse(JSON.stringify(original));`"
+    ],
+    "correctAnswer": "`const copy = JSON.parse(JSON.stringify(original));`"
+  },
+
+  {
+    "id": "javascript-6",
+    "topic": "JavaScript",
+    "content": "## String Methods Challenge\n\n```js\nlet str = 'javaScript';\nstr = str.slice(0, 4).toUpperCase().replace('JAVA', 'Type');\nconst result = str.substring(-2, 4);\nconsole.log(result);\n```\n\n### What will be printed?",
+    "options": ["`Type`", "`TYPE`", "`pe`", "`java`"],
+    "correctAnswer": "`Type`"
+  },
+  {
+    "id": "javascript-7",
+    "topic": "JavaScript",
+    "content": "## Array Methods Challenge\n\n```js\nconst arr = [2, 3];\narr.push(4);\narr.unshift(1);\narr.shift();\nconst sliced = arr.slice(1);\nsliced.splice(1, 1, 9, 10);\nconsole.log(sliced);\n```\n\n### What will be the output?",
+    "options": ["`[3, 9, 10]`", "`[2, 9, 10]`", "`[2, 4]`", "`[1, 2, 3, 4]`"],
+    "correctAnswer": "`[3, 9, 10]`"
+  },
+  {
+    "id": "javascript-8",
+    "topic": "JavaScript",
+    "content": "## forEach vs map\n\n```js\nconst arr = [1, 2, 3];\nconst result1 = arr.forEach(x => x * 2);\nconst result2 = arr.map(x => x * 2);\nconsole.log(result1, result2);\n```\n\n### What will be printed?",
+    "options": [
+      "`[2, 4, 6] [2, 4, 6]`",
+      "`undefined [2, 4, 6]`",
+      "`undefined undefined`",
+      "`[1, 2, 3] [2, 4, 6]`"
+    ],
+    "correctAnswer": "`undefined [2, 4, 6]`"
+  },
+  {
+    "id": "javascript-9",
+    "topic": "JavaScript",
+    "content": "## Array Rotation Challenge\n\n```js\nconst arr = [1, 2, 3, 4, 5];\nconst k = 2;\nconst rotated = [...arr.slice(-k), ...arr.slice(0, -k)];\nconsole.log(rotated);\n```\n\n### What will be the output?",
+    "options": ["`[3, 4, 5, 1, 2]`", "`[5, 4, 3, 2, 1]`", "`[4, 5, 1, 2, 3]`", "`[2, 1, 3, 4, 5]`"],
+    "correctAnswer": "`[4, 5, 1, 2, 3]`"
+  },
+  {
+    "id": "javascript-10",
+    "topic": "JavaScript",
+    "content": "## Predict the Output\n\n```js\nconst user = {\n  name: 'Kiran',\n  age: 26,\n  city: 'Pune'\n};\n\nconst { name, age } = user;\nconsole.log(name, age);\n```\n\n### What will be printed?",
+    "options": ["`Kiran 26`", "`undefined undefined`", "`user.name user.age`", "`Pune 26`"],
+    "correctAnswer": "`Kiran 26`"
+  },
+
+  {
+    "id": "javascript-11",
+    "topic": "JavaScript",
+    "content": "## Object Merge Challenge\n\n```js\nconst obj1 = { a: 1, b: 2 };\nconst obj2 = { b: 3, c: 4 };\nconst merged = { ...obj1, ...obj2, z: 100 };\nconsole.log(merged);\n```\n\n### What will be printed?",
+    "options": [
+      "`{ a: 1, b: 2, c: 4, z: 100 }`",
+      "`{ a: 1, b: 3, c: 4, z: 100 }`",
+      "`{ a: 1, c: 4, z: 100 }`",
+      "`{ b: 3, z: 100 }`"
+    ],
+    "correctAnswer": "`{ a: 1, b: 3, c: 4, z: 100 }`"
+  },
+  {
+    "id": "javascript-12",
+    "topic": "JavaScript",
+    "content": "## Optional Chaining\n\n```js\nconst obj = { a: { b: 2 } };\nconsole.log(obj.a?.c?.d);\n```\n\n### What will be printed?",
+    "options": ["`null`", "`2`", "`undefined`", "TypeError"],
+    "correctAnswer": "`undefined`"
+  },
+  {
+    "id": "javascript-13",
+    "topic": "JavaScript",
+    "content": "## Set Methods\n\n```js\nconst set = new Set([1, 2, 2, 3]);\nset.add(4);\nset.delete(2);\nconsole.log(set.size, set.has(2));\n```\n\n### What will be printed?",
+    "options": ["`3 false`", "`4 true`", "`3 true`", "`4 false`"],
+    "correctAnswer": "`3 false`"
+  },
+  {
+    "id": "javascript-14",
+    "topic": "JavaScript",
+    "content": "## Map Iteration\n\n```js\nconst m = new Map();\nm.set('a', 1);\nm.set('b', 2);\n\nfor (const [k, v] of m) {\n  console.log(k, v);\n}\n```\n\n### What will be logged?",
+    "options": ["`a 1` then `b 2`", "`1 a` then `2 b`", "`a,b` only", "Nothing"],
+    "correctAnswer": "`a 1` then `b 2`"
+  },
+  {
+    "id": "javascript-15",
+    "topic": "JavaScript",
+    "content": "## Map Clear Challenge\n\n```js\nconst m = new Map([\n  ['x', 10],\n  ['y', 20]\n]);\n\nm.clear();\nconsole.log(m.size);\n```\n\n### What will be printed?",
+    "options": ["`2`", "`undefined`", "`0`", "Error"],
+    "correctAnswer": "`0`"
+  },
+
+  {
+    "id": "javascript-16",
+    "topic": "JavaScript",
+    "content": "## `this` Keyword Challenge\n\n```js\nconst user = {\n  name: 'Ravi',\n  greet: () => console.log(this.name)\n};\n\nuser.greet();\n```\n\n### What is the best explanation?",
+    "options": [
+      "Prints `Ravi` because arrow functions bind object automatically",
+      "Arrow functions do not get their own `this`, so it does not refer to `user` here",
+      "Throws syntax error because methods cannot be arrow functions",
+      "Always prints `user`"
+    ],
+    "correctAnswer": "Arrow functions do not get their own `this`, so it does not refer to `user` here"
+  },
+  {
+    "id": "javascript-17",
+    "topic": "JavaScript",
+    "content": "## call, apply, bind\n\n```js\nconst person = {\n  name: 'Anu',\n  greet: function(msg, sign) {\n    return `${msg}, ${this.name}${sign}`;\n  }\n};\n\nconst other = { name: 'Vikram' };\n\nconsole.log(person.greet.call(other, 'Hello', '!'));\nconsole.log(person.greet.apply(other, ['Hi', '...']));\n\nconst bound = person.greet.bind(other, 'Hey');\nconsole.log(bound('?'));\n```\n\n### What will be printed?",
+    "options": [
+      "`Hello, Vikram!` then `Hi, Vikram...` then `Hey, Vikram?`",
+      "`Hello, Anu!` then `Hi, Anu...` then `Hey, Anu?`",
+      "`Hello, Vikram!` then Error on apply",
+      "`undefined undefined undefined`"
+    ],
+    "correctAnswer": "`Hello, Vikram!` then `Hi, Vikram...` then `Hey, Vikram?`"
+  },
+  {
+    "id": "javascript-18",
+    "topic": "JavaScript",
+    "content": "## Closure Challenge\n\n```js\nfunction outer() {\n  let count = 0;\n  return function inner() {\n    count++;\n    console.log(count);\n  };\n}\n\nconst fn1 = outer();\nconst fn2 = outer();\n\nfn1();\nfn1();\nfn2();\n```\n\n### What will be printed?",
+    "options": ["`1 2 1`", "`1 2 3`", "`0 1 2`", "`1 1 1`"],
+    "correctAnswer": "`1 2 1`"
+  },
+
+  {
+    "id": "javascript-19",
+    "topic": "JavaScript",
+    "content": "## Async / Await Order\n\n```js\nasync function test() {\n  console.log('A');\n  await Promise.resolve();\n  console.log('B');\n}\n\nconsole.log('C');\ntest();\nconsole.log('D');\n```\n\n### What will be printed?",
+    "options": ["`A C D B`", "`C A D B`", "`C D A B`", "`C A B D`"],
+    "correctAnswer": "`C A D B`"
+  },
+  {
+    "id": "javascript-20",
+    "topic": "JavaScript",
+    "content": "## Event Loop Challenge\n\n```js\nconsole.log('Start');\n\nPromise.resolve()\n  .then(() => {\n    console.log('Promise 1');\n    return Promise.resolve('Promise 2');\n  })\n  .then(res => {\n    console.log(res);\n  });\n\nsetTimeout(() => {\n  console.log('Timer');\n}, 0);\n\nconsole.log('End');\n```\n\n### What will be printed?",
+    "options": [
+      "`Start End Promise 1 Promise 2 Timer`",
+      "`Start Promise 1 End Timer Promise 2`",
+      "`Start End Timer Promise 1 Promise 2`",
+      "`Promise 1 Promise 2 Start End Timer`"
+    ],
+    "correctAnswer": "`Start End Promise 1 Promise 2 Timer`"
+  },
+  {
+    "id": "javascript-21",
+    "topic": "JavaScript",
+    "content": "## Promise Chain\n\n```js\nPromise.resolve()\n  .then(() => {\n    console.log('First');\n    return Promise.resolve('Second');\n  })\n  .then(msg => {\n    console.log(msg);\n  })\n  .then(() => {\n    console.log('Third');\n  });\n```\n\n### What will be printed?",
+    "options": [
+      "`First Second Third`",
+      "`Second First Third`",
+      "`First Third Second`",
+      "`Third First Second`"
+    ],
+    "correctAnswer": "`First Second Third`"
+  },
+  {
+    "id": "javascript-22",
+    "topic": "JavaScript",
+    "content": "## Advanced Event Loop\n\n```js\nconsole.log('Start');\n\nsetTimeout(() => {\n  console.log('Timeout 1');\n}, 0);\n\nPromise.resolve().then(() => {\n  console.log('Promise 1');\n  setTimeout(() => {\n    console.log('Timeout 2');\n  }, 0);\n});\n\nPromise.resolve().then(() => {\n  console.log('Promise 2');\n});\n\nconsole.log('End');\n```\n\n### What will be printed?",
+    "options": [
+      "`Start End Timeout 1 Promise 1 Promise 2 Timeout 2`",
+      "`Start End Promise 1 Promise 2 Timeout 1 Timeout 2`",
+      "`Start Promise 1 Promise 2 End Timeout 1 Timeout 2`",
+      "`Start End Promise 2 Promise 1 Timeout 2 Timeout 1`"
+    ],
+    "correctAnswer": "`Start End Promise 1 Promise 2 Timeout 1 Timeout 2`"
+  },
+  {
+    "id": "javascript-23",
+    "topic": "JavaScript",
+    "content": "## Web Storage Challenge\n\nConsider the following code:\n\n```js\nlocalStorage.setItem('theme', 'dark');\nsessionStorage.setItem('step', '2');\n```\n\nThe browser tab is closed and opened again.\n\n### Which statement is correct?",
+    "options": [
+      "`theme` remains in `localStorage`, but `step` from `sessionStorage` is cleared for that tab session",
+      "Both values are always removed when tab closes",
+      "Both values remain forever in all cases",
+      "`sessionStorage` moves data automatically into `localStorage`"
+    ],
+    "correctAnswer": "`theme` remains in `localStorage`, but `step` from `sessionStorage` is cleared for that tab session"
   }
 ]
