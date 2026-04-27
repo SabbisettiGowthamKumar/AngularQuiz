@@ -1,27 +1,125 @@
-# AngularQuiz
+# <img src="./public/Q.ico" width="28" /> Frontend Quiz App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.21.
+Frontend Quiz App is built for frontend developers to test, revise, and strengthen interview concepts across key technologies such as Angular, HTML, SCSS, JavaScript, TypeScript, RxJS, NgRx, and Git.
 
-## Development server
+The quiz is designed to make learning engaging through code output challenges, real-world scenario questions, and day-to-day development based problem solving.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+This project focuses on clean UI, strong developer experience, responsive design, and high-quality question content across important frontend technologies.
 
-## Code scaffolding
+---
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## ✨ Features
 
-## Build
+- 🎯 Topic-based quiz generation
+- 🧠 Real interview-focused questions
+- 💻 Code snippet based MCQs
+- 📝 Real-world scenario based questions
+- ⏱ Dynamic timer with auto-submit
+- 📊 Instant score summary
+- 🔁 Restart quiz flow
+- 📱 Responsive design (desktop + mobile)
+- 🎨 Modern UI / improved UX
+- 🔍 SEO optimized metadata
+- 🏷 Topic question count badges
+- ✅ Linting + formatting standards
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+---
 
-## Running unit tests
+## 🚀 Getting Started
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### 1. Clone Repository
 
-## Running end-to-end tests
+```bash
+git clone https://github.com/SabbisettiGowthamKumar/AngularQuiz.git
+cd AngularQuiz
+```
+### 2. Install Dependencies 
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```bash
+npm install
+```
+### 3. Run Development Server
+```bash
+npm run start
+```
+##### visit localhost:4200
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## 🛠 Tech Stack
+
+### Core Technologies
+
+- Angular
+- TypeScript
+- HTML
+- SCSS
+
+### UI & State Management
+
+- Angular Material
+- RxJS
+- Angular Signals
+
+### Developer Tooling
+
+- ESLint
+- Prettier
+- VS Code Workspace Recommendations
+
+---
+
+## 📚 Quiz Topics
+
+- Angular Fundamentals
+- HTML
+- SCSS
+- JavaScript
+- TypeScript
+- RxJS
+- NgRx
+- Git
+
+---
+
+## 🤝 Open for Collaboration
+
+Contributions, ideas, improvements, and bug fixes are welcome.
+
+If you'd like to contribute:
+
+1. Fork the repository
+2. Create a new branch
+3. Make your changes
+4. Run quality checks
+5. Open a Pull Request
+
+
+### Lint Project
+```bash
+npm run lint
+```
+
+### Check Formatting
+```bash
+npm run format:check
+```
+
+### Auto Format Files
+```bash
+npm run format:write
+```
+---
+
+## ✅ Pull Request Guidelines
+
+Before creating a PR, please ensure the following commands pass successfully:
+
+```bash
+npm run lint
+npm run format:check
+```
+
+
+## 🌐 Live Demo
+
+Coming soon after deployment.
