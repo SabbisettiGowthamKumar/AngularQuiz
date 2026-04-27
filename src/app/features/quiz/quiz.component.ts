@@ -36,6 +36,7 @@ export class QuizComponent implements OnInit {
 
   ngOnInit(): void {
     this.unload.enable();
+    window.scrollTo({ top: 0, behavior: 'instant' });
   }
 
   isSidebarCollapsed = signal(false);
