@@ -27,6 +27,9 @@ This project focuses on clean UI, strong developer experience, responsive design
 
 ## 🚀 Getting Started
 
+- Angular CLI version: 18.2.21
+- Node Version : 24.14.1
+
 ### 1. Clone Repository
 
 ```bash
@@ -123,3 +126,6 @@ npm run format:check
 ## 🌐 Live Demo
 
 [AngularQuizApp](https://angularquiz.vercel.app/)
+
+## License
+[MIT License](LICENSE)
