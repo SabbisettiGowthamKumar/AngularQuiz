@@ -1,23 +1,25 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
+import { MatBadgeModule } from '@angular/material/badge';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
-import { QuizService } from '../../../quiz/services/quiz.service';
+import { TimerService } from '../../../../core/services/timer.service';
+
 @Component({
   selector: 'app-topic-selection',
   standalone: true,
-  imports: [MatChipsModule, CommonModule, MatCardModule],
+  imports: [MatChipsModule, CommonModule, MatCardModule, MatBadgeModule],
   templateUrl: './topic-selection.component.html',
   styleUrl: './topic-selection.component.scss',
 })
 export class TopicSelectionComponent {
-  public quizService: QuizService = inject(QuizService);
+  public timer: TimerService = inject(TimerService);
 
   addTopic(topic: string) {
-    this.quizService.addTopic(topic);
+    this.timer.addTopic(topic);
   }
 
   removeTopic(topic: string) {
-    this.quizService.removeTopic(topic);
+    this.timer.removeTopic(topic);
   }
 }

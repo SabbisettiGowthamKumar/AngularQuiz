@@ -13,6 +13,12 @@
   }
   <div class="quiz-header__timer title-style">
     <mat-icon>schedule</mat-icon>
-    <span> {{ time }}</span>
+    <span
+      [class.warning]="quiz.warningTime()"
+      [class.danger]="quiz.dangerTime()"
+      [class.timeStop]="!quiz.isTimerRunning()"
+    >
+      {{ formattedTime() }}</span
+    >
   </div>
 </header>

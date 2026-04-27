@@ -27,6 +27,24 @@
     border-radius: 12px;
     font-weight: 400;
     white-space: nowrap;
+
+    & > .warning {
+      color: orange;
+    }
+
+    & > .danger {
+      color: #ff4d4d;
+      animation: pulse 1s infinite;
+    }
+
+    & > .timeStop {
+      animation: none;
+    }
+    @keyframes pulse {
+      50% {
+        transform: scale(1.05);
+      }
+    }
   }
 
   &__results {

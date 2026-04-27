@@ -43,6 +43,7 @@ export class FooterComponent {
       .pipe(filter((result) => result === true))
       .subscribe(() => {
         this.quiz.isSubmitted.set(true);
+        this.quiz.stopTimer();
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
   }

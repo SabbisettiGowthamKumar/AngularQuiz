@@ -49,4 +49,7 @@ module.exports = defineConfig([
     extends: [angular.configs.templateRecommended, angular.configs.templateAccessibility],
     rules: {},
   },
+  {
+    ignores: ['**/*.spec.ts'],
+  }
 ]);

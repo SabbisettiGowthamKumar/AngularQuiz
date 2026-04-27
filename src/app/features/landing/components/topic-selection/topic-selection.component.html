@@ -5,7 +5,7 @@
   </p>
   <mat-card class="topic-selection__card" appearance="raised">
     <div class="topic-selection__card__topics">
-      @for (topic of quizService.topics(); track topic) {
+      @for (topic of timer._topics(); track topic) {
         <div
           class="topic-selection__card__topics--topic"
           role="button"
@@ -13,6 +13,7 @@
           (click)="addTopic(topic)"
           (keydown.enter)="addTopic(topic)"
           (keydown.space)="addTopic(topic)"
+          [matBadge]="timer.getTopicCount(topic)"
         >
           {{ topic }}
         </div>
@@ -22,15 +23,16 @@
     <div class="topic-selection__card__title">Selected Topics</div>
 
     <div class="topic-selection__card__selected-topics">
-      @if (quizService.selectedTopics().length === 0) {
+      @if (timer._selectedTopics().length === 0) {
         <p class="placeholder">No topics selected</p>
       } @else {
-        @for (topic of quizService.selectedTopics(); track topic) {
+        @for (topic of timer._selectedTopics(); track topic) {
           <mat-chip
             class="topic-selection__card__selected-topics--topic"
             removable
             (removed)="removeTopic(topic)"
             [highlighted]="true"
+            [matBadge]="timer.getTopicCount(topic)"
             >{{ topic }}<button matChipRemove>X</button></mat-chip
           >
         }

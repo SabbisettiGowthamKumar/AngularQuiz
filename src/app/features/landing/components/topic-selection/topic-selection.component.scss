@@ -53,3 +53,7 @@
     color: rgb(5, 5, 5);
   }
 }
+
+::ng-deep .mat-badge {
+  --mat-badge-background-color: #514f4f;
+}

@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, computed, inject, input, output } from '@angular/core';
-import { Question } from '../../models/question.model';
+import { Question } from '../../../../shared/models/question.model';
 import { QuizService } from '../../services/quiz.service';
 @Component({
   selector: 'app-side-panel',

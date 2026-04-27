@@ -1,0 +1,37 @@
+{
+  "totalQuestions": 124,
+  "topics": [
+    {
+      "name": "Angular Fundamentals",
+      "count": 30
+    },
+    {
+      "name": "HTML",
+      "count": 11
+    },
+    {
+      "name": "SCSS",
+      "count": 15
+    },
+    {
+      "name": "JavaScript",
+      "count": 23
+    },
+    {
+      "name": "TypeScript",
+      "count": 10
+    },
+    {
+      "name": "RxJS",
+      "count": 15
+    },
+    {
+      "name": "NgRx",
+      "count": 10
+    },
+    {
+      "name": "Git",
+      "count": 10
+    }
+  ]
+}

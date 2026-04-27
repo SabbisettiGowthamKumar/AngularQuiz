@@ -47,7 +47,10 @@ export class QuizComponent implements OnInit {
   sidebarWidth = computed(() => (this.isSidebarCollapsed() ? '56px ' : '280px'));
 
   private isQuizInProgress(): boolean {
-    return this.quiz.totalQuestions() > 0 && this.quiz.answeredCount() > 0;
+    return (
+      (this.quiz.totalQuestions() > 0 && this.quiz.answeredCount() > 0) ||
+      this.quiz.isTimerRunning()
+    );
   }
 
   private showLeaveDialog(): Observable<boolean> {

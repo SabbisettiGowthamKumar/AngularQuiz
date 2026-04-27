@@ -1,7 +1,8 @@
-import { computed, Injectable, signal, WritableSignal } from '@angular/core';
-import { Question } from '../models/question.model';
+import { computed, inject, Injectable, signal } from '@angular/core';
+import { Question } from '../../../shared/models/question.model';
 
 /* JSON Question Banks */
+import { TimerService } from '../../../core/services/timer.service';
 import { QuestionStatus } from '../../../shared/enums/question-status.enum';
 import { Topic } from '../../../shared/enums/topic.enum';
 import angularData from '../data/angular-fundamentals.json';
@@ -17,6 +18,8 @@ import typescriptData from '../data/typescript.json';
   providedIn: 'root',
 })
 export class QuizService {
+  timer = inject(TimerService);
+
   ALL_TOPICS = [
     Topic.ANGULAR_FUNDAMENTALS,
     Topic.HTML,
@@ -28,12 +31,8 @@ export class QuizService {
     Topic.GIT,
   ];
 
-  private _topics: WritableSignal<string[]> = signal<string[]>([...this.ALL_TOPICS]);
-
-  private _selectedTopics: WritableSignal<string[]> = signal<string[]>([]);
-
-  topics = this._topics.asReadonly();
-  selectedTopics = this._selectedTopics.asReadonly();
+  topics = this.timer._topics.asReadonly();
+  selectedTopics = this.timer._selectedTopics.asReadonly();
 
   private questionBank: Question[] = [
     ...angularData,
@@ -53,16 +52,6 @@ export class QuizService {
   reviewIds = signal<string[]>([]);
   isSubmitted = signal(false);
 
-  addTopic(topic: string) {
-    this._selectedTopics.update((topics) => [...topics, topic]);
-    this._topics.update((topics) => topics.filter((t) => t !== topic));
-  }
-
-  removeTopic(topic: string) {
-    this._topics.update((topics) => [...topics, topic]);
-    this._selectedTopics.update((topics) => topics.filter((t) => t !== topic));
-  }
-
   startQuiz() {
     const orderedQuestions = this.selectedTopics().flatMap((topic) =>
       this.questionBank.filter((q) => q.topic === topic)
@@ -77,6 +66,7 @@ export class QuizService {
     this.currentIndex.set(0);
     this.answers.set({});
     this.reviewIds.set([]);
+    this.startTimer();
   }
 
   restart() {
@@ -85,8 +75,8 @@ export class QuizService {
     this.currentIndex.set(0);
     this.answers.set({});
     this.reviewIds.set([]);
-    this._topics.set([...this.ALL_TOPICS]);
-    this._selectedTopics.set([]);
+    this.timer._topics.set([...this.ALL_TOPICS]);
+    this.timer._selectedTopics.set([]);
   }
   currentQuestion = computed(() => this.questions()[this.currentIndex()] ?? null);
 
@@ -177,4 +167,40 @@ export class QuizService {
 
     return questions.length ? Math.round((correct / questions.length) * 100) : 0;
   });
+
+  readonly remainingSeconds = signal(0);
+  readonly isTimerRunning = signal(false);
+  private timerId: ReturnType<typeof setInterval> | null = null;
+
+  readonly warningTime = computed(() => this.remainingSeconds() <= 120);
+  readonly dangerTime = computed(() => this.remainingSeconds() <= 30);
+
+  startTimer() {
+    this.stopTimer();
+
+    const totalMinutes = this.timer.quizTime();
+
+    this.remainingSeconds.set(totalMinutes * 60);
+    this.isTimerRunning.set(true);
+
+    this.timerId = setInterval(() => {
+      const current = this.remainingSeconds();
+
+      if (current <= 1) {
+        this.stopTimer();
+        this.isSubmitted.set(true);
+        return;
+      }
+      this.remainingSeconds.set(current - 1);
+    }, 1000);
+  }
+
+  stopTimer() {
+    if (this.timerId) {
+      clearInterval(this.timerId);
+      this.timerId = null;
+    }
+
+    this.isTimerRunning.set(false);
+  }
 }

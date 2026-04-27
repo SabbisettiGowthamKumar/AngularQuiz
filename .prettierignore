@@ -18,3 +18,5 @@ package-lock.json
 
 # Other
 coverage/
+
+**/*.spec.ts

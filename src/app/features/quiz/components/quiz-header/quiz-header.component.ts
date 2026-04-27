@@ -1,4 +1,4 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatIcon } from '@angular/material/icon';
 import { Router } from '@angular/router';
@@ -15,7 +15,21 @@ export class QuizHeaderComponent {
   quiz = inject(QuizService);
   router = inject(Router);
 
-  @Input() time = '03:09';
+  readonly formattedTime = computed(() => {
+    const total = this.quiz.remainingSeconds();
+
+    const hrs = Math.floor(total / 3600)
+      .toString()
+      .padStart(2, '0');
+
+    const mins = Math.floor((total % 3600) / 60)
+      .toString()
+      .padStart(2, '0');
+
+    const secs = (total % 60).toString().padStart(2, '0');
+
+    return total >= 3600 ? `${hrs}:${mins}:${secs}` : `${mins}:${secs}`;
+  });
 
   restartQuiz() {
     this.quiz.restart();
