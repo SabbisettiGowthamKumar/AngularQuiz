@@ -56,11 +56,11 @@
   }
   .quiz-page__layout {
     grid-template-columns: 1fr !important;
-    gap: 5px;
   }
   .quiz-page__questions,
   .quiz-page__options {
-    min-height: auto;
+    min-height: 65dvh;
+    min-width: 0;
   }
   .quiz-page__sidebar {
     display: none; // later drawer

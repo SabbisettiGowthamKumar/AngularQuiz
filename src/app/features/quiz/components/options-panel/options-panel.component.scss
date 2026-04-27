@@ -1,3 +1,5 @@
+@use 'breakpoints' as *;
+
 .options-panel {
   background: inherit;
   display: flex;
@@ -109,6 +111,12 @@
       background-color: #463b3b !important;
       transition: none !important;
       transform: none !important;
+    }
+
+    @media (max-width: $breakpoint-tablet){
+      margin-bottom: 5px;
+      padding: 20px;
+      font-size: 20px;
     }
   }
 }
